@@ -118,9 +118,7 @@ function shouldRemove(urlString) {
   const match = findMatch(url.hostname, url.pathname);
   if (!match) return false;
 
-  if (match.keepHomepage && isSectionRoot(url.pathname, match.path)) return false;
-
-  return true;
+  return !(match.keepHomepage && isSectionRoot(url.pathname, match.path));
 }
 
 // Fires shortly after any page finishes loading and lands in history.
