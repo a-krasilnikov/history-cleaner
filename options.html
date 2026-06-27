@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>History Auto-Cleaner — Settings</title>
+<link rel="stylesheet" href="options.css" />
+</head>
+<body>
+
+  <main class="card">
+    <header class="header">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M12 8.2V12L14.4 13.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="5.5" y1="18.2" x2="18.2" y2="5.7" stroke="#C1502E" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h1>History Auto-Cleaner</h1>
+        <p class="tagline">Sites on this list never stay in your history.</p>
+      </div>
+    </header>
+
+    <section class="add-row">
+      <label class="visually-hidden" for="site-input">Website to remove</label>
+      <input
+        id="site-input"
+        type="text"
+        placeholder="e.g. instagram.com or site.com/forum/"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button id="add-btn" class="btn btn-primary" type="button">Add site</button>
+    </section>
+
+    <label class="switch add-switch">
+      <input type="checkbox" id="keep-homepage-input" />
+      <span class="track" aria-hidden="true"></span>
+      <span class="switch-text">
+        Keep the exact page above, only delete deeper ones
+        <span class="switch-sub">site.com/ stays, site.com/page goes — or scope it: site.com/forum/ stays, site.com/forum/post goes</span>
+      </span>
+    </label>
+
+    <p id="input-hint" class="hint"></p>
+
+    <section class="list-section">
+      <div class="list-heading">
+        <div class="list-heading-left">
+          <h2>Blocked sites</h2>
+          <span id="count-badge" class="count-badge">0</span>
+        </div>
+        <div class="list-actions">
+          <button id="export-btn" class="btn-text" type="button">Export</button>
+          <button id="import-btn" class="btn-text" type="button">Import</button>
+          <input type="file" id="import-file-input" accept="application/json" hidden />
+        </div>
+      </div>
+
+      <ul id="site-list" class="site-list"></ul>
+
+      <p id="empty-state" class="empty-state">
+        No sites yet. Add a domain (instagram.com) or a specific section (site.com/forum/) —
+        matching pages, including subdomains, will be swept from your history automatically.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-text">
+        <strong>Sweep existing history</strong>
+        <span>Runs automatically every 30 minutes and whenever Chrome starts. Click to sweep right now instead of waiting.</span>
+      </div>
+      <button id="clean-now-btn" class="btn btn-ghost" type="button">Sweep now</button>
+    </footer>
+
+    <p id="auto-sweep-info" class="auto-sweep-info"></p>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>
