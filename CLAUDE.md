@@ -17,6 +17,8 @@ dependencies, no network access. Load unpacked to run (see below).
 | `options.html/.css/.js` | The only UI. Opens on toolbar-icon click. Vanilla JS, no framework. |
 | `icons/` | 16/48/128 px action + extension icons. |
 | `docs/PRD.md` | Product spec — source of truth for intended behavior, matching examples, edge cases. |
+| `test/` | Unit tests for the matching core. Node built-in runner, no deps. |
+| `package.json` | Metadata + `npm test` script. No dependencies. |
 
 ## Critical invariant: duplicated normalization
 
@@ -82,7 +84,16 @@ avoid duplicates. Every sweep writes `{ time, trigger, removed }` to
 
 ## Run / test
 
-No test suite. To test manually:
+**Unit tests** cover the matching core (`test/matching.test.js`). They load
+`background.js` into a `vm` sandbox with a mocked `chrome` global and assert
+against the PRD's matching examples. Requires Node 18+, no dependencies:
+
+    npm test        # or: node --test
+
+Add a case here for any change to the matching logic, and trace the PRD
+examples by hand.
+
+**Manual / end-to-end:**
 1. `chrome://extensions` → enable Developer mode → Load unpacked → this folder.
 2. Click the toolbar icon to open settings; add a rule.
 3. Visit a matching page, then check `chrome://history` — it should be gone.

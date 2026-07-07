@@ -1,0 +1,9 @@
+{
+  "name": "history-auto-cleaner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension that auto-deletes chosen sites from browser history.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
