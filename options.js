@@ -139,9 +139,17 @@ function render() {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.checked = site.keepHomepage;
-      checkbox.addEventListener("change", () => {
-        site.keepHomepage = checkbox.checked;
-        save();
+      checkbox.addEventListener("change", async () => {
+        const next = sites.map((s) =>
+          s.domain === site.domain && s.path === site.path
+            ? { ...s, keepHomepage: checkbox.checked }
+            : s
+        );
+        const saved = await saveSites(next, (text) => setStatus(text, true));
+        if (!saved) {
+          checkbox.checked = !checkbox.checked; // put the switch back
+          return;
+        }
         setStatus(
           checkbox.checked
             ? `${key} will stay — only deeper pages are removed.`
@@ -169,11 +177,35 @@ function render() {
     });
 }
 
-function save() {
-  chrome.storage.sync.set({ sites });
+/** Friendly text for a failed storage.sync write. */
+function saveErrorText(message) {
+  const msg = String(message || "");
+  if (/quota/i.test(msg)) {
+    return "Couldn't save — sync storage is full (about 100 rules). Remove a rule and try again.";
+  }
+  if (/MAX_WRITE_OPERATIONS/i.test(msg)) {
+    return "Couldn't save — too many changes at once. Wait a moment and try again.";
+  }
+  return `Couldn't save settings: ${msg || "unknown error"}`;
 }
 
-function addSite() {
+/**
+ * Tries to persist `next` as the rule list. Only on success does it become the
+ * in-memory `sites` — so on failure the UI still reflects what's actually
+ * stored. Returns true if saved; on failure reports the reason via `report`.
+ */
+async function saveSites(next, report) {
+  try {
+    await chrome.storage.sync.set({ sites: next });
+  } catch (e) {
+    report(saveErrorText(e && e.message));
+    return false;
+  }
+  sites = next;
+  return true;
+}
+
+async function addSite() {
   const { domain, path } = parseSiteInput(input.value);
 
   if (!domain) {
@@ -192,8 +224,8 @@ function addSite() {
 
   setHint("");
   const keepHomepage = keepHomepageInput.checked;
-  sites.push({ domain, path, keepHomepage });
-  save();
+  const saved = await saveSites(sites.concat([{ domain, path, keepHomepage }]), setHint);
+  if (!saved) return; // input is preserved so the user can retry
   render();
   input.value = "";
   input.focus();
@@ -207,11 +239,11 @@ function addSite() {
 function removeSite(site, rowEl) {
   rowEl.classList.add("removing");
   const key = displayKey(site);
-  window.setTimeout(() => {
-    sites = sites.filter((s) => !(s.domain === site.domain && s.path === site.path));
-    save();
-    render();
-    setStatus(`Removed ${key}.`);
+  window.setTimeout(async () => {
+    const next = sites.filter((s) => !(s.domain === site.domain && s.path === site.path));
+    const saved = await saveSites(next, (text) => setStatus(text, true));
+    render(); // on failure this re-renders the kept list, restoring the row
+    if (saved) setStatus(`Removed ${key}.`);
   }, 180);
 }
 
@@ -268,7 +300,7 @@ function exportSites() {
 
 function importSites(file) {
   const reader = new FileReader();
-  reader.onload = () => {
+  reader.onload = async () => {
     let parsed;
     try {
       parsed = JSON.parse(reader.result);
@@ -286,22 +318,25 @@ function importSites(file) {
       return;
     }
 
+    // Merge into a copy; the current list stays untouched unless the save lands.
+    const next = sites.map((s) => ({ ...s }));
     let added = 0;
     let updated = 0;
     incoming.forEach((incomingSite) => {
-      const existing = sites.find(
+      const existing = next.find(
         (s) => s.domain === incomingSite.domain && s.path === incomingSite.path
       );
       if (existing) {
         if (existing.keepHomepage !== incomingSite.keepHomepage) updated++;
         existing.keepHomepage = incomingSite.keepHomepage;
       } else {
-        sites.push(incomingSite);
+        next.push(incomingSite);
         added++;
       }
     });
 
-    save();
+    const saved = await saveSites(next, (text) => setStatus(text, true));
+    if (!saved) return;
     render();
     setStatus(`Imported: ${added} added, ${updated} updated.`, true);
   };

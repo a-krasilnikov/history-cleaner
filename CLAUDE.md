@@ -77,7 +77,11 @@ avoid duplicates. Every sweep writes `{ time, trigger, removed }` to
 ## Storage
 
 - `chrome.storage.sync` → `sites` (the rule list). Synced across devices.
-- `chrome.storage.local` → `lastSweep`. Device-local.
+  **Quota:** one sync item is capped at 8 KB ≈ ~100–140 rules, and writes are
+  rate-limited. All writes in `options.js` must go through `saveSites()` —
+  persist-then-commit: the in-memory list only updates after the write lands,
+  and failures are shown to the user. Never call `storage.sync.set` directly.
+- `chrome.storage.local` → `lastSweep`. Device-local, 10 MB quota — not a concern.
 - `toSiteConfigs` accepts the legacy `string[]` shape and the current
   `object[]` shape. Keep this back-compat when touching storage.
 
