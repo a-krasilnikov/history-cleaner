@@ -1,0 +1,8 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Packaged extension
+*.zip
+*.crx
+*.pem
