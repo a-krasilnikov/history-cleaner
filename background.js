@@ -66,13 +66,18 @@ function toSiteConfigs(rawSites) {
     .filter((entry) => entry && entry.domain);
 }
 
-function loadSites() {
-  chrome.storage.sync.get({ sites: [] }, (data) => {
-    blockedSites = toSiteConfigs(data.sites);
-  });
+/** (Re)reads the rule list from storage into blockedSites. */
+async function loadSites() {
+  const data = await chrome.storage.sync.get({ sites: [] });
+  blockedSites = toSiteConfigs(data.sites);
 }
 
-loadSites();
+// A fresh worker wakes with blockedSites = [] and fills it asynchronously,
+// but Chrome delivers the event that caused the wake as soon as the top-level
+// script finishes — possibly before the storage read lands. Anything that
+// consults blockedSites on wake must `await ready` first, or the waking visit
+// slips through and sits in history until the next sweep.
+const ready = loadSites();
 ensureAlarm();
 
 chrome.storage.onChanged.addListener((changes, area) => {
@@ -127,7 +132,9 @@ function shouldRemove(urlString) {
 }
 
 // Fires shortly after any page finishes loading and lands in history.
-chrome.history.onVisited.addListener((historyItem) => {
+// Async on purpose: on a cold start this very event races the storage read.
+chrome.history.onVisited.addListener(async (historyItem) => {
+  await ready;
   if (historyItem.url && shouldRemove(historyItem.url)) {
     chrome.history.deleteUrl({ url: historyItem.url });
   }
@@ -175,12 +182,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 /** Searches all of history and deletes anything matching the blocked list. */
 async function sweepHistory(trigger) {
   // Re-read storage in case this runs immediately after a save.
-  await new Promise((resolve) => {
-    chrome.storage.sync.get({ sites: [] }, (data) => {
-      blockedSites = toSiteConfigs(data.sites);
-      resolve();
-    });
-  });
+  await loadSites();
 
   let removed = 0;
 

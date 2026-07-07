@@ -65,6 +65,10 @@ Any change here must still satisfy every example in `docs/PRD.md`
 ## Four deletion paths (background.js)
 
 1. Live — `history.onVisited` deletes matches immediately (primary path).
+   The handler `await`s the initial rules load (`ready` in background.js):
+   a cold-started worker would otherwise check the waking visit against a
+   still-empty list and miss it. Keep that gate on any new wake-time consumer
+   of `blockedSites` (sweeps are immune — they re-read storage themselves).
 2. Periodic — `alarms` every `SWEEP_INTERVAL_MINUTES` (30).
 3. Startup — `runtime.onStartup`.
 4. Manual — options page sends `CLEAN_NOW`; worker replies with count removed.
