@@ -1,5 +1,7 @@
 # History Auto-Cleaner
 
+[![test](https://github.com/a-krasilnikov/history-cleaner/actions/workflows/test.yml/badge.svg)](https://github.com/a-krasilnikov/history-cleaner/actions/workflows/test.yml)
+
 A Chrome (Manifest V3) extension that quietly removes chosen sites from your
 browsing history — automatically, in the background. Add a site once and forget
 it; matching pages never stick around. Nothing leaves your machine.
