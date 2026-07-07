@@ -45,3 +45,17 @@ it never wipes existing rules.
 
 See [CLAUDE.md](CLAUDE.md) for architecture and the matching-logic rules, and
 [docs/PRD.md](docs/PRD.md) for the full product spec.
+
+## Packaging for the Chrome Web Store
+
+    npm run pack
+
+Creates `history-auto-cleaner.zip` (gitignored) containing only the runtime
+files — manifest, scripts, options page, icons. No tests, docs, or repo
+config. Upload the zip as-is in the developer dashboard.
+
+Note: it packages the last **commit** (`git archive HEAD`), not the working
+tree — commit your changes first. Without Node/npm, the underlying command
+works in any terminal:
+
+    git archive --format=zip -o history-auto-cleaner.zip HEAD -- manifest.json background.js options.html options.css options.js icons

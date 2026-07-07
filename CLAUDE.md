@@ -93,6 +93,11 @@ against the PRD's matching examples. Requires Node 18+, no dependencies:
 Add a case here for any change to the matching logic, and trace the PRD
 examples by hand.
 
+**Packaging:** `npm run pack` → `history-auto-cleaner.zip` via `git archive
+HEAD` (runtime files only, zip root = extension root). If you add a runtime
+file, add it to the pack script's pathspec list in `package.json`; it packages
+the last commit, so commit before packing.
+
 **Manual / end-to-end:**
 1. `chrome://extensions` → enable Developer mode → Load unpacked → this folder.
 2. Click the toolbar icon to open settings; add a rule.
