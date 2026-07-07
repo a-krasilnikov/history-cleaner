@@ -73,6 +73,10 @@ Any change here must still satisfy every example in `docs/PRD.md`
 3. Startup — `runtime.onStartup`.
 4. Manual — options page sends `CLEAN_NOW`; worker replies with count removed.
 
+All four paths delete via `removeFromHistory(url, source)`, which logs every
+removal to the worker console (`[History Auto-Cleaner] removed (<source>): …`)
+— inspect it at chrome://extensions → service worker.
+
 Sweeps exist to catch history that arrives via Chrome sync (doesn't fire the
 live listener locally). `ensureAlarm` checks `alarms.get` before creating to
 avoid duplicates. Every sweep writes `{ time, trigger, removed }` to

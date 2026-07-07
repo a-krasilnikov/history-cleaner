@@ -131,12 +131,20 @@ function shouldRemove(urlString) {
   return !(match.keepHomepage && isSectionRoot(pathname, match.path));
 }
 
+// The one place history entries get deleted. Logs every removal to the worker
+// console (chrome://extensions → service worker → Inspect) so removals are
+// auditable; `source` says which path triggered it (live vs a sweep trigger).
+async function removeFromHistory(url, source) {
+  await chrome.history.deleteUrl({ url });
+  console.log(`[History Auto-Cleaner] removed (${source}): ${url}`);
+}
+
 // Fires shortly after any page finishes loading and lands in history.
 // Async on purpose: on a cold start this very event races the storage read.
 chrome.history.onVisited.addListener(async (historyItem) => {
   await ready;
   if (historyItem.url && shouldRemove(historyItem.url)) {
-    chrome.history.deleteUrl({ url: historyItem.url });
+    await removeFromHistory(historyItem.url, "live");
   }
 });
 
@@ -195,7 +203,7 @@ async function sweepHistory(trigger) {
 
     for (const item of items) {
       if (item.url && shouldRemove(item.url)) {
-        await chrome.history.deleteUrl({ url: item.url });
+        await removeFromHistory(item.url, `sweep:${trigger}`);
         removed++;
       }
     }
