@@ -25,9 +25,9 @@ function normalizeDomain(raw) {
   return d;
 }
 
-/** Ensures a path starts and ends with "/". Empty/missing path becomes "/". */
+/** Lowercases and ensures a path starts and ends with "/". Empty/missing path becomes "/". */
 function normalizePath(raw) {
-  let p = String(raw || "").trim();
+  let p = String(raw || "").trim().toLowerCase();
   if (!p || p === "/") return "/";
   if (!p.startsWith("/")) p = "/" + p;
   if (!p.endsWith("/")) p += "/";

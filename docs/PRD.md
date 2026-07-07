@@ -137,6 +137,9 @@ with `/forum/`. So:
 This scoping also applies to subdomains. A rule for `site.com/forum/` will also
 match `sub.site.com/forum/some-post`.
 
+Matching is case-insensitive throughout: `site.com/Forum/post` is treated the
+same as `site.com/forum/post`. Rules are stored lowercase.
+
 ### When two rules could apply, the more specific one wins
 
 If the user has both `site.com` (whole domain) and `site.com/forum/` (just the

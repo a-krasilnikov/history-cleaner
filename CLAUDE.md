@@ -37,6 +37,10 @@ with `/`; a bare domain has path `"/"`.
 - `pathMatches`: `"/"` matches everything; otherwise pathname equals the path,
   equals it minus the trailing slash, or `startsWith` it. `/forums` must NOT
   match rule `/forum/`.
+- Matching is case-insensitive end to end (deliberate product decision, even
+  though URL paths are case-sensitive by spec): rules are stored lowercase
+  (`normalizePath` lowercases) and `shouldRemove` lowercases the URL pathname
+  before comparing.
 - `findMatch`: when multiple rules match, the one with the **longest path**
   wins (specificity). Note: domain specificity is NOT a tiebreaker — only path
   length is.
@@ -48,11 +52,6 @@ Any change here must still satisfy every example in `docs/PRD.md`
 
 ## Known quirks (documented, not yet decided)
 
-- **Path case:** rules are lowercased on input, but matching compares against
-  the raw `url.pathname` (case-sensitive). A rule typed `site.com/Forum/` is
-  stored as `/forum/` and will NOT match `/Forum/post`. Likely a latent bug;
-  the fix is to lowercase the pathname before matching — in BOTH files. Awaits
-  a product decision; the PRD is silent on path case.
 - **Tiebreak:** when two matching rules have equal path length (e.g. rules for
   `site.com` and `sub.site.com`, both path `/`), the winner is storage order,
   not domain specificity. The PRD only defines path-length specificity.

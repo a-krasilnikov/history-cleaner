@@ -218,15 +218,30 @@ describe("non-matches and bad input", () => {
   });
 });
 
-// --- Known quirk (characterization test) ---------------------------------
-// Documents current behavior noted in CLAUDE.md "Known quirks": rules are
-// lowercased on input, but matching compares the raw (case-sensitive) pathname,
-// so a mixed-case URL path slips past a path rule. Flip this assertion to `true`
-// if/when the quirk is fixed (lowercase the pathname before matching).
+// --- Case-insensitivity ---------------------------------------------------
+// Rules are stored lowercase (normalizePath lowercases) and shouldRemove
+// lowercases the URL pathname before matching, so /Forum/post and /forum/post
+// are the same place. URL paths are case-sensitive by spec; we deliberately
+// ignore that — see docs/PRD.md.
 
-describe("known quirk: path matching is case-sensitive", () => {
-  it("a lowercased path rule misses a mixed-case URL path", () => {
-    const rule = [{ domain: "example.com", path: "/forum/", keepHomepage: false }];
-    assert.equal(removes(rule, "https://example.com/Forum/post"), false);
+describe("case-insensitive path matching", () => {
+  const rule = [{ domain: "example.com", path: "/forum/", keepHomepage: false }];
+
+  it("a rule matches mixed-case URL paths", () => {
+    assert.equal(removes(rule, "https://example.com/Forum/post"), true);
+    assert.equal(removes(rule, "https://example.com/FORUM/"), true);
+  });
+  it("keep-root recognizes the section root in any case", () => {
+    const keep = [{ domain: "example.com", path: "/forum/", keepHomepage: true }];
+    assert.equal(removes(keep, "https://example.com/Forum/"), false);
+    assert.equal(removes(keep, "https://example.com/Forum/post"), true);
+  });
+  it("normalizePath lowercases rule paths", () => {
+    assert.equal(bg.normalizePath("/Forum"), "/forum/");
+  });
+  it("toSiteConfigs lowercases mixed-case object paths (import route)", () => {
+    assert.deepEqual(plain(bg.toSiteConfigs([{ domain: "example.com", path: "/Forum/" }])), [
+      { domain: "example.com", path: "/forum/", keepHomepage: false }
+    ]);
   });
 });

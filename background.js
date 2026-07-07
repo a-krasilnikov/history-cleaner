@@ -23,9 +23,9 @@ function normalizeDomain(input) {
   return d;
 }
 
-/** Ensures a path starts and ends with "/". Empty/missing path becomes "/". */
+/** Lowercases and ensures a path starts and ends with "/". Empty/missing path becomes "/". */
 function normalizePath(input) {
-  let p = String(input || "").trim();
+  let p = String(input || "").trim().toLowerCase();
   if (!p || p === "/") return "/";
   if (!p.startsWith("/")) p = "/" + p;
   if (!p.endsWith("/")) p += "/";
@@ -115,10 +115,15 @@ function shouldRemove(urlString) {
     return false;
   }
 
-  const match = findMatch(url.hostname, url.pathname);
+  // URL paths are case-sensitive by spec, but rules are stored lowercase and
+  // users mean the same place by /Forum/ and /forum/. Lowercase the pathname
+  // so matching is case-insensitive end to end.
+  const pathname = url.pathname.toLowerCase();
+
+  const match = findMatch(url.hostname, pathname);
   if (!match) return false;
 
-  return !(match.keepHomepage && isSectionRoot(url.pathname, match.path));
+  return !(match.keepHomepage && isSectionRoot(pathname, match.path));
 }
 
 // Fires shortly after any page finishes loading and lands in history.
