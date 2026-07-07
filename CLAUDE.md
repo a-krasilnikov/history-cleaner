@@ -12,7 +12,7 @@ dependencies, no network access. Load unpacked to run (see below).
 
 | File | Role |
 |------|------|
-| `manifest.json` | MV3 manifest. Permissions: `history`, `storage`, `alarms`. No host permissions — keep it that way. |
+| `manifest.json` | MV3 manifest. Permissions: `history`, `storage`, `alarms`. No host permissions — keep it that way. `minimum_chrome_version: 111` (Mar 2023) — at 111+ every chrome.* API used here supports promises (`chrome.alarms` was the last, at 111), so promise-form/`await` calls are safe throughout; no per-API version checks needed. |
 | `background.js` | Service worker. The cleaning engine: live listener + sweeps + matching logic. |
 | `options.html/.css/.js` | The only UI. Opens on toolbar-icon click. Vanilla JS, no framework. |
 | `icons/` | 16/48/128 px action + extension icons. |
