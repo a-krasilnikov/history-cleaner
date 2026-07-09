@@ -230,9 +230,12 @@ h1 {
   gap: 8px;
 }
 
-.list-actions {
+.toolbar {
   display: flex;
-  gap: 4px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .btn-text {
@@ -342,28 +345,6 @@ h2 {
   margin: 0;
   text-align: center;
   display: none;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
-}
-
-.footer-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-size: 12px;
-  color: var(--ink-soft);
-}
-
-.footer-text strong {
-  color: var(--ink);
-  font-size: 13px;
 }
 
 .status {

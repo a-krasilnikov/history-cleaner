@@ -43,16 +43,23 @@
 
     <p id="input-hint" class="hint"></p>
 
+    <section class="toolbar">
+      <button id="export-btn" class="btn-text" type="button">Export</button>
+      <button id="import-btn" class="btn-text" type="button">Import</button>
+      <input type="file" id="import-file-input" accept="application/json" hidden />
+      <button
+        id="clean-now-btn"
+        class="btn btn-ghost"
+        type="button"
+        title="History is swept automatically every 30 minutes and on Chrome startup. Click to sweep right now instead of waiting."
+      >Sweep now</button>
+    </section>
+
     <section class="list-section">
       <div class="list-heading">
         <div class="list-heading-left">
           <h2>Blocked sites</h2>
           <span id="count-badge" class="count-badge">0</span>
-        </div>
-        <div class="list-actions">
-          <button id="export-btn" class="btn-text" type="button">Export</button>
-          <button id="import-btn" class="btn-text" type="button">Import</button>
-          <input type="file" id="import-file-input" accept="application/json" hidden />
         </div>
       </div>
 
@@ -63,14 +70,6 @@
         matching pages, including subdomains, will be swept from your history automatically.
       </p>
     </section>
-
-    <footer class="footer">
-      <div class="footer-text">
-        <strong>Sweep existing history</strong>
-        <span>Runs automatically every 30 minutes and whenever Chrome starts. Click to sweep right now instead of waiting.</span>
-      </div>
-      <button id="clean-now-btn" class="btn btn-ghost" type="button">Sweep now</button>
-    </footer>
 
     <p id="auto-sweep-info" class="auto-sweep-info"></p>
 
