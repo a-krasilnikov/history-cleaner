@@ -65,7 +65,8 @@ count of active rules.
 
 ### Export and Import
 
-Two small buttons sit next to the "Blocked sites" heading.
+Two small buttons sit in the action toolbar under the add field, next to the
+"Clean up now" button.
 
 **Export** downloads the current rule list as a JSON file. Useful for backup or
 moving settings to another machine.
@@ -74,14 +75,14 @@ moving settings to another machine.
 and replace. Rules that already exist get their settings updated; new ones are
 added. Nothing is deleted during an import.
 
-### Sweep status
+### Clean-up status
 
-At the bottom of the page, below a "Sweep now" button (more on that below),
-there's a one-liner showing when history was last cleaned and what happened:
+At the bottom of the page there's a one-liner showing when history was last
+cleaned and what happened:
 
-> Last automatic sweep: 12 minutes ago — removed 4 entries.
+> Last automatic clean-up: 12 minutes ago — removed 4 entries.
 
-This updates live whenever a sweep finishes.
+This updates live whenever a clean-up finishes.
 
 ## How deletion actually works
 
@@ -96,8 +97,8 @@ There are four ways pages get removed from history:
    live listener locally).
 3. **On Chrome startup.** A sweep runs automatically when Chrome launches. Same
    idea — cleans up anything that synced in while Chrome was closed.
-4. **On demand.** The "Sweep now" button in the settings page triggers an
-   immediate sweep. The button shows feedback while it runs and reports how
+4. **On demand.** The "Clean up now" button in the settings toolbar triggers
+   an immediate sweep. The button shows feedback while it runs and reports how
    many entries were removed.
 
 After each sweep (of any kind), the extension saves a record of when it ran,

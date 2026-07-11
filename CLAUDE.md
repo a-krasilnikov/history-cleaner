@@ -18,7 +18,9 @@ dependencies, no network access. Load unpacked to run (see below).
 | `icons/` | 16/48/128 px action + extension icons. |
 | `docs/PRD.md` | Product spec — source of truth for intended behavior, matching examples, edge cases. |
 | `test/` | Unit tests for the matching core. Node built-in runner, no deps. |
-| `package.json` | Metadata + `npm test` script. No dependencies. |
+| `package.json` | Metadata + `npm test` / `npm run pack` scripts. No dependencies. |
+| `.github/workflows/test.yml` | CI: `node --test` on Node 22/24, every push to master + PRs. |
+| `PRIVACY.md` | Privacy policy (Web Store requires a public URL for the `history` permission — the repo file is the source; it's published separately). |
 
 ## Critical invariant: duplicated normalization
 
@@ -113,7 +115,7 @@ the last commit, so commit before packing.
 1. `chrome://extensions` → enable Developer mode → Load unpacked → this folder.
 2. Click the toolbar icon to open settings; add a rule.
 3. Visit a matching page, then check `chrome://history` — it should be gone.
-4. Use "Sweep now" to test existing-history cleanup; watch the sweep status line.
+4. Use "Clean up now" to test existing-history cleanup; watch the status line.
 Reload the extension from `chrome://extensions` after editing `background.js`.
 
 ## Conventions
@@ -121,3 +123,7 @@ Reload the extension from `chrome://extensions` after editing `background.js`.
 - Keep it dependency-free and MV3-compliant.
 - Don't add permissions or any network calls — privacy is the product.
 - Match the existing plain-JS, comment-the-why style.
+- Naming split, on purpose: UI copy says "clean up", but internal identifiers
+  keep "sweep" (`sweepHistory`, `lastSweep` storage key, `periodicHistorySweep`
+  alarm). Do NOT "fix" this — renaming the storage key or alarm needs a
+  migration.

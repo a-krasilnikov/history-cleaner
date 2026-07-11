@@ -33,9 +33,9 @@ it never wipes existing rules.
 ## How cleaning happens
 
 - **Live** — pages are deleted the moment you visit them.
-- **Every 30 minutes** and **on Chrome startup** — a full sweep catches history
-  synced from other devices.
-- **Sweep now** — trigger an immediate sweep from the settings page.
+- **Every 30 minutes** and **on Chrome startup** — a full clean-up catches
+  history synced from other devices.
+- **Clean up now** — trigger an immediate clean-up from the settings page.
 
 ## Permissions
 
@@ -55,7 +55,5 @@ files — manifest, scripts, options page, icons. No tests, docs, or repo
 config. Upload the zip as-is in the developer dashboard.
 
 Note: it packages the last **commit** (`git archive HEAD`), not the working
-tree — commit your changes first. Without Node/npm, the underlying command
-works in any terminal:
-
-    git archive --format=zip -o history-auto-cleaner.zip HEAD -- manifest.json background.js options.html options.css options.js icons
+tree — commit your changes first. Without Node/npm, run the `pack` script's
+`git archive` command (see `package.json`) directly in any terminal.
