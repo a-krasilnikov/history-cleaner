@@ -247,19 +247,19 @@ input.addEventListener("input", () => setHint(""));
 
 cleanNowBtn.addEventListener("click", () => {
   if (sites.length === 0) {
-    setStatus("Add a site first — nothing to sweep yet.");
+    setStatus("Add a site first — nothing to clean up yet.");
     return;
   }
   cleanNowBtn.disabled = true;
-  cleanNowBtn.textContent = "Sweeping…";
+  cleanNowBtn.textContent = "Cleaning up…";
   chrome.runtime.sendMessage({ type: "CLEAN_NOW" }, (response) => {
     cleanNowBtn.disabled = false;
-    cleanNowBtn.textContent = "Sweep now";
+    cleanNowBtn.textContent = "Clean up now";
     const removed = response && typeof response.removed === "number" ? response.removed : 0;
     setStatus(
       removed === 0
         ? "Nothing matching found in your existing history."
-        : `Swept ${removed} matching ${removed === 1 ? "entry" : "entries"} from history.`,
+        : `Cleaned up ${removed} matching ${removed === 1 ? "entry" : "entries"} from history.`,
       true
     );
   });
@@ -357,19 +357,19 @@ function formatRelativeTime(ms) {
 }
 
 const TRIGGER_LABEL = {
-  manual: "manual sweep",
-  periodic: "automatic sweep",
-  startup: "startup sweep",
+  manual: "manual clean-up",
+  periodic: "automatic clean-up",
+  startup: "startup clean-up",
   install: "first run"
 };
 
 function renderAutoSweepInfo(lastSweep) {
   if (!lastSweep) {
     autoSweepInfo.textContent =
-      "Runs automatically every 30 minutes and on Chrome startup. No sweep has run yet.";
+      "Runs automatically every 30 minutes and on Chrome startup. No clean-up has run yet.";
     return;
   }
-  const label = TRIGGER_LABEL[lastSweep.trigger] || "sweep";
+  const label = TRIGGER_LABEL[lastSweep.trigger] || "clean-up";
   const removedText =
     lastSweep.removed === 0
       ? "nothing to remove"
