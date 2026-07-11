@@ -17,14 +17,14 @@ it; matching pages never stick around. Nothing leaves your machine.
 
 Add a rule by typing a domain or a path-scoped URL:
 
-- `instagram.com` — removes every page on Instagram (and all subdomains).
+- `example.com` — removes every page on the site (and all subdomains).
 - `site.com/forum/` — removes only the `/forum/` section, leaving the rest.
 
 Input is forgiving: `https://`, `www.`, query strings, and trailing slashes are
 all normalized away.
 
 **Keep the root page:** the per-rule toggle keeps the exact page itself (e.g.
-`instagram.com/` or `site.com/forum/`) while still deleting everything nested
+`example.com/` or `site.com/forum/`) while still deleting everything nested
 under it.
 
 **Export / Import:** back up or move your rule list as JSON. Import *merges* —

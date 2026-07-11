@@ -27,7 +27,7 @@ extension's toolbar icon.
 There's a text input and an "Add site" button. The user types a domain or a
 path-scoped URL:
 
-- `instagram.com` — removes all pages on Instagram
+- `example.com` — removes all pages on the site
 - `site.com/forum/` — removes only the forum section, leaving the rest of the
   site alone
 
@@ -39,8 +39,8 @@ domains (e.g. random words with no dot).
 Below the input is a toggle: "Keep the exact page above, only delete deeper
 ones". When turned on:
 
-- Adding `instagram.com` → `instagram.com/` stays in history, but
-  `instagram.com/p/abc123` gets deleted
+- Adding `example.com` → `example.com/` stays in history, but
+  `example.com/p/abc123` gets deleted
 - Adding `site.com/forum/` → `site.com/forum/` stays, but
   `site.com/forum/some-post` gets deleted
 
@@ -169,7 +169,7 @@ Each rule is stored as:
 
 ```json
 {
-  "domain": "instagram.com",
+  "domain": "example.com",
   "path": "/",
   "keepHomepage": false
 }
@@ -193,8 +193,8 @@ No network access. No data ever leaves the user's machine.
 
 ## Edge cases to handle
 
-- User pastes a full URL like `https://www.instagram.com/p/abc?utm_source=x`
-  into the input — should be normalized cleanly to `instagram.com` with path
+- User pastes a full URL like `https://www.example.com/p/abc?utm_source=x`
+  into the input — should be normalized cleanly to `example.com` with path
   `/p/abc/`.
 - Duplicate rules — if the user tries to add a rule that already exists (same
   domain + same path), show an inline message rather than silently ignoring or

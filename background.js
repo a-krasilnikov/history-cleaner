@@ -4,7 +4,7 @@
 // Chrome starts up — so visits that slip past the live listener (e.g. items
 // that arrive via history sync from another device) still get cleaned up.
 
-// Each entry: { domain: "instagram.com", path: "/", keepHomepage: false }
+// Each entry: { domain: "example.com", path: "/", keepHomepage: false }
 // path is always normalized to start and end with "/". "/" means "the whole
 // domain". A deeper path like "/forum/" scopes the rule to that section only.
 // keepHomepage = true  -> keep the exact page at `path` itself (the section's

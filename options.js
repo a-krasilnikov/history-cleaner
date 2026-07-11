@@ -14,7 +14,7 @@ const importBtn = document.getElementById("import-btn");
 const importFileInput = document.getElementById("import-file-input");
 const autoSweepInfo = document.getElementById("auto-sweep-info");
 
-// sites: [{ domain: "instagram.com", path: "/", keepHomepage: false }, ...]
+// sites: [{ domain: "example.com", path: "/", keepHomepage: false }, ...]
 let sites = [];
 let statusTimer = null;
 
@@ -198,7 +198,7 @@ async function addSite() {
   const { domain, path } = parseSiteInput(input.value);
 
   if (!domain) {
-    setHint("Type a domain first, e.g. instagram.com");
+    setHint("Type a domain first, e.g. example.com");
     return;
   }
   if (!isValidDomain(domain)) {
