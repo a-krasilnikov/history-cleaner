@@ -105,10 +105,7 @@ function render() {
       li.className = "site-row";
       li.dataset.key = key;
 
-      // --- top line: domain/path + remove button ---
-      const top = document.createElement("div");
-      top.className = "site-row-top";
-
+      // One line: domain (grows) + keep-root switch + remove button.
       const label = document.createElement("span");
       label.className = "site-domain";
       label.textContent = key;
@@ -125,13 +122,6 @@ function render() {
       removeBtn.setAttribute("aria-label", `Remove ${key} from the list`);
       removeBtn.textContent = "✕";
       removeBtn.addEventListener("click", () => removeSite(site, li));
-
-      top.appendChild(label);
-      top.appendChild(removeBtn);
-
-      // --- bottom line: per-site "keep root page" switch ---
-      const bottom = document.createElement("div");
-      bottom.className = "site-row-bottom";
 
       const switchLabel = document.createElement("label");
       switchLabel.className = "switch row-switch";
@@ -169,10 +159,9 @@ function render() {
       switchLabel.appendChild(track);
       switchLabel.appendChild(text);
 
-      bottom.appendChild(switchLabel);
-
-      li.appendChild(top);
-      li.appendChild(bottom);
+      li.appendChild(label);
+      li.appendChild(switchLabel);
+      li.appendChild(removeBtn);
       list.appendChild(li);
     });
 }

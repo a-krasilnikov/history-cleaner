@@ -207,6 +207,7 @@ h1 {
 
 .row-switch {
   font-size: 11.5px;
+  flex-shrink: 0;
 }
 
 .row-switch .switch-text {
@@ -286,14 +287,14 @@ h2 {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .site-row {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 10px 10px 10px 12px;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 8px 7px 12px;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 9px;
@@ -305,23 +306,9 @@ h2 {
   transform: translateX(8px);
 }
 
-.site-row-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.site-row-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding-top: 8px;
-  border-top: 1px dashed var(--border);
-}
-
 .site-domain {
+  flex: 1;
+  min-width: 0;
   font-size: 13.5px;
   font-weight: 600;
   word-break: break-all;
