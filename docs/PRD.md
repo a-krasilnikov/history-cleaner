@@ -63,6 +63,23 @@ for a path-scoped rule it says "Keep this page itself".
 Rows animate out when removed (fade + slight slide). The heading shows a live
 count of active rules.
 
+### Filtering the list
+
+Next to the heading there's a filter box (hidden while the list is empty).
+Typing in it narrows the list to rules whose `domain/path` text contains what
+was typed — mainly to answer "did I already add this site?" without scrolling.
+
+- Matching is a plain case-insensitive substring check against the text shown
+  in the row, so `forum` finds `site.com/forum/`.
+- The query is forgiving in the same way the add field is: `https://` and
+  `www.` are stripped, so pasting a URL works.
+- While a filter is active the count badge reads `visible / total`, and a
+  no-matches message replaces the rows if nothing matches.
+- Escape clears the filter. Adding a site also clears it, so the new rule can't
+  land outside the current filter and look like it wasn't added.
+- The filter is view-only — it never changes what's stored or what gets
+  deleted, and it isn't persisted between openings of the settings page.
+
 ### Export and Import
 
 Two small buttons sit in the action toolbar under the add field, next to the

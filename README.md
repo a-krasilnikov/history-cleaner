@@ -27,6 +27,10 @@ all normalized away.
 `example.com/` or `site.com/forum/`) while still deleting everything nested
 under it.
 
+**Filter:** the box next to the "Blocked sites" heading narrows the list to
+rules containing what you type — handy for checking whether a site is already
+on it. Escape clears it.
+
 **Export / Import:** back up or move your rule list as JSON. Import *merges* —
 it never wipes existing rules.
 

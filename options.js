@@ -5,7 +5,9 @@ const addBtn = document.getElementById("add-btn");
 const keepHomepageInput = document.getElementById("keep-homepage-input");
 const hint = document.getElementById("input-hint");
 const list = document.getElementById("site-list");
+const filterInput = document.getElementById("filter-input");
 const emptyState = document.getElementById("empty-state");
+const noMatches = document.getElementById("no-matches");
 const countBadge = document.getElementById("count-badge");
 const cleanNowBtn = document.getElementById("clean-now-btn");
 const status = document.getElementById("status");
@@ -91,12 +93,35 @@ function setHint(text) {
   hint.textContent = text;
 }
 
+/**
+ * The filter box is matched against the same "domain/path" text the rows show,
+ * so what the user reads is what they can search. Pasting a full URL works too:
+ * the query goes through the same protocol/www stripping as a rule.
+ */
+function filterQuery() {
+  const raw = String(filterInput.value || "").trim();
+  return raw ? normalizeDomain(raw) : "";
+}
+
+function matchesFilter(site, query) {
+  return !query || displayKey(site).includes(query);
+}
+
 function render() {
   list.innerHTML = "";
-  countBadge.textContent = String(sites.length);
-  emptyState.style.display = sites.length === 0 ? "block" : "none";
 
-  sites
+  const query = filterQuery();
+  const visible = sites.filter((site) => matchesFilter(site, query));
+
+  countBadge.textContent = query
+    ? `${visible.length} / ${sites.length}`
+    : String(sites.length);
+  filterInput.hidden = sites.length === 0;
+  emptyState.style.display = sites.length === 0 ? "block" : "none";
+  noMatches.textContent = query ? `No sites match "${query}".` : "";
+  noMatches.style.display = sites.length > 0 && visible.length === 0 ? "block" : "none";
+
+  visible
     .slice()
     .sort((a, b) => displayKey(a).localeCompare(displayKey(b)))
     .forEach((site) => {
@@ -215,6 +240,7 @@ async function addSite() {
   const keepHomepage = keepHomepageInput.checked;
   const saved = await saveSites(sites.concat([{ domain, path, keepHomepage }]), setHint);
   if (!saved) return; // input is preserved so the user can retry
+  filterInput.value = ""; // otherwise the row just added could be filtered out of view
   render();
   input.value = "";
   input.focus();
@@ -244,6 +270,15 @@ input.addEventListener("keydown", (e) => {
   }
 });
 input.addEventListener("input", () => setHint(""));
+
+filterInput.addEventListener("input", render);
+filterInput.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && filterInput.value) {
+    e.preventDefault(); // don't let Esc close the popup while there's a filter to clear
+    filterInput.value = "";
+    render();
+  }
+});
 
 cleanNowBtn.addEventListener("click", () => {
   if (sites.length === 0) {

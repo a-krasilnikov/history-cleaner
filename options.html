@@ -61,6 +61,16 @@
           <h2>Blocked sites</h2>
           <span id="count-badge" class="count-badge">0</span>
         </div>
+        <label class="visually-hidden" for="filter-input">Filter the list</label>
+        <input
+          id="filter-input"
+          class="filter-input"
+          type="search"
+          placeholder="Filter list…"
+          autocomplete="off"
+          spellcheck="false"
+          hidden
+        />
       </div>
 
       <ul id="site-list" class="site-list"></ul>
@@ -69,6 +79,8 @@
         No sites yet. Add a domain (example.com) or a specific section (site.com/forum/) —
         matching pages, including subdomains, will be cleaned up automatically.
       </p>
+
+      <p id="no-matches" class="empty-state"></p>
     </section>
 
     <p id="auto-sweep-info" class="auto-sweep-info"></p>
