@@ -199,6 +199,20 @@ domain gets path `"/"`.
 Sweep history (last run time, trigger, count removed) is stored in
 `chrome.storage.local` — local to the device, not synced.
 
+## Language
+
+The UI follows the browser's own language — there is no language picker on the
+settings page, because the browser already knows. English is the default and
+the fallback for any language not translated yet.
+
+Copy lives in `_locales/<lang>/messages.json`, which also supplies the
+extension name and description shown on `chrome://extensions` and in the Web
+Store. Adding a language is adding one folder; no code changes.
+
+Two things are left to the browser rather than to translators: counts are
+pluralized by the language's own rules (English needs two forms, many
+languages need more), and relative times ("5 minutes ago") come from `Intl`.
+
 ## Permissions
 
 The extension requests exactly three permissions:

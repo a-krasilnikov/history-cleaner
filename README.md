@@ -41,6 +41,12 @@ it never wipes existing rules.
   history synced from other devices.
 - **Clean up now** — trigger an immediate clean-up from the settings page.
 
+## Languages
+
+The settings page follows your browser's language. English ships today and is
+the fallback for everything else. Translations live in
+`_locales/<lang>/messages.json` — adding one is a folder, not a code change.
+
 ## Permissions
 
 `history`, `storage`, `alarms` — nothing more. No network access.
@@ -55,8 +61,8 @@ See [CLAUDE.md](CLAUDE.md) for architecture and the matching-logic rules, and
     npm run pack
 
 Creates `history-auto-cleaner.zip` (gitignored) containing only the runtime
-files — manifest, scripts, options page, icons. No tests, docs, or repo
-config. Upload the zip as-is in the developer dashboard.
+files — manifest, scripts, options page, icons, translations. No tests, docs,
+or repo config. Upload the zip as-is in the developer dashboard.
 
 Note: it packages the last **commit** (`git archive HEAD`), not the working
 tree — commit your changes first. Without Node/npm, run the `pack` script's

@@ -16,6 +16,62 @@ const importBtn = document.getElementById("import-btn");
 const importFileInput = document.getElementById("import-file-input");
 const autoSweepInfo = document.getElementById("auto-sweep-info");
 
+// --- i18n -------------------------------------------------------------
+// Every user-visible string lives in _locales/<lang>/messages.json; this
+// section is the only place that reads it. To add a language, drop in a
+// _locales/<code>/messages.json — no code change needed.
+
+// chrome.i18n is missing when options.html is opened as a plain file (handy
+// for checking layout) — then nothing is swapped in and the English fallback
+// markup stands.
+const i18n = globalThis.chrome && chrome.i18n;
+const UI_LANG = i18n ? i18n.getUILanguage() : "en";
+const pluralRules = new Intl.PluralRules(UI_LANG);
+const relativeTime = new Intl.RelativeTimeFormat(UI_LANG, { numeric: "auto" });
+
+/** chrome.i18n.getMessage with positional substitutions ($1, $2, …). */
+function t(key, ...subs) {
+  if (!i18n) return "";
+  return i18n.getMessage(key, subs.length ? subs.map(String) : undefined);
+}
+
+/**
+ * Plural-aware lookup: picks `<key>_one` / `_few` / `_many` / `_other` by the
+ * UI language's rules — English needs two forms, Russian three. `count` is
+ * always $1 and is formatted for the locale. Falls back to `_other` for any
+ * category a locale doesn't define (getMessage returns "" for a missing key).
+ */
+function tn(key, count, ...subs) {
+  const all = [count.toLocaleString(UI_LANG), ...subs.map(String)];
+  return (
+    t(`${key}_${pluralRules.select(count)}`, ...all) || t(`${key}_other`, ...all)
+  );
+}
+
+/**
+ * Swaps the message catalogue into the static markup. A key with no message
+ * leaves the element's fallback text alone rather than blanking the UI.
+ */
+function localizeDocument() {
+  if (!i18n) return;
+  document.documentElement.lang = UI_LANG;
+  // Chrome resolves @@bidi_dir to "ltr"/"rtl" for the active locale.
+  document.documentElement.dir = t("@@bidi_dir");
+
+  const apply = (attr, set) => {
+    document.querySelectorAll(`[${attr}]`).forEach((el) => {
+      const message = t(el.getAttribute(attr));
+      if (message) set(el, message);
+    });
+  };
+
+  apply("data-i18n", (el, message) => (el.textContent = message));
+  apply("data-i18n-placeholder", (el, message) => (el.placeholder = message));
+  apply("data-i18n-title", (el, message) => (el.title = message));
+}
+
+localizeDocument();
+
 // sites: [{ domain: "example.com", path: "/", keepHomepage: false }, ...]
 let sites = [];
 let statusTimer = null;
@@ -118,7 +174,7 @@ function render() {
     : String(sites.length);
   filterInput.hidden = sites.length === 0;
   emptyState.style.display = sites.length === 0 ? "block" : "none";
-  noMatches.textContent = query ? `No sites match "${query}".` : "";
+  noMatches.textContent = query ? t("noMatches", query) : "";
   noMatches.style.display = sites.length > 0 && visible.length === 0 ? "block" : "none";
 
   visible
@@ -138,13 +194,15 @@ function render() {
       const sub = document.createElement("span");
       sub.className = "sub-note";
       sub.textContent =
-        site.path === "/" ? "+ all subdomains" : `+ all subdomains, scoped to ${site.path}`;
+        site.path === "/"
+          ? t("rowAllSubdomains")
+          : t("rowAllSubdomainsScoped", site.path);
       label.appendChild(sub);
 
       const removeBtn = document.createElement("button");
       removeBtn.className = "btn-icon";
       removeBtn.type = "button";
-      removeBtn.setAttribute("aria-label", `Remove ${key} from the list`);
+      removeBtn.setAttribute("aria-label", t("rowRemoveLabel", key));
       removeBtn.textContent = "✕";
       removeBtn.addEventListener("click", () => removeSite(site, li));
 
@@ -165,11 +223,7 @@ function render() {
           checkbox.checked = !checkbox.checked; // put the switch back
           return;
         }
-        setStatus(
-          checkbox.checked
-            ? `${key} will stay — only deeper pages are removed.`
-            : `Every page under ${key} will be removed.`
-        );
+        setStatus(t(checkbox.checked ? "statusKeepOn" : "statusKeepOff", key));
       });
 
       const track = document.createElement("span");
@@ -178,7 +232,7 @@ function render() {
 
       const text = document.createElement("span");
       text.className = "switch-text";
-      text.textContent = site.path === "/" ? "Keep homepage" : "Keep this page itself";
+      text.textContent = t(site.path === "/" ? "rowKeepHomepage" : "rowKeepThisPage");
 
       switchLabel.appendChild(checkbox);
       switchLabel.appendChild(track);
@@ -194,13 +248,9 @@ function render() {
 /** Friendly text for a failed storage.sync write. */
 function saveErrorText(message) {
   const msg = String(message || "");
-  if (/quota/i.test(msg)) {
-    return "Couldn't save — sync storage is full (about 100 rules). Remove a rule and try again.";
-  }
-  if (/MAX_WRITE_OPERATIONS/i.test(msg)) {
-    return "Couldn't save — too many changes at once. Wait a moment and try again.";
-  }
-  return `Couldn't save settings: ${msg || "unknown error"}`;
+  if (/quota/i.test(msg)) return t("saveErrorQuota");
+  if (/MAX_WRITE_OPERATIONS/i.test(msg)) return t("saveErrorTooManyWrites");
+  return t("saveErrorGeneric", msg || t("saveErrorUnknown"));
 }
 
 /**
@@ -223,16 +273,16 @@ async function addSite() {
   const { domain, path } = parseSiteInput(input.value);
 
   if (!domain) {
-    setHint("Type a domain first, e.g. example.com");
+    setHint(t("hintNeedDomain"));
     return;
   }
   if (!isValidDomain(domain)) {
-    setHint(`"${input.value.trim()}" doesn't look like a valid domain.`);
+    setHint(t("hintInvalidDomain", input.value.trim()));
     return;
   }
   const key = path === "/" ? domain : `${domain}${path}`;
   if (sites.some((s) => s.domain === domain && s.path === path)) {
-    setHint(`${key} is already on the list.`);
+    setHint(t("hintDuplicate", key));
     return;
   }
 
@@ -244,11 +294,7 @@ async function addSite() {
   render();
   input.value = "";
   input.focus();
-  setStatus(
-    keepHomepage
-      ? `Added ${key} — that page stays, deeper pages are removed.`
-      : `Added ${key}.`
-  );
+  setStatus(t(keepHomepage ? "statusAddedKeep" : "statusAdded", key));
 }
 
 function removeSite(site, rowEl) {
@@ -258,7 +304,7 @@ function removeSite(site, rowEl) {
     const next = sites.filter((s) => !(s.domain === site.domain && s.path === site.path));
     const saved = await saveSites(next, (text) => setStatus(text, true));
     render(); // on failure this re-renders the kept list, restoring the row
-    if (saved) setStatus(`Removed ${key}.`);
+    if (saved) setStatus(t("statusRemoved", key));
   }, 180);
 }
 
@@ -282,19 +328,17 @@ filterInput.addEventListener("keydown", (e) => {
 
 cleanNowBtn.addEventListener("click", () => {
   if (sites.length === 0) {
-    setStatus("Add a site first — nothing to clean up yet.");
+    setStatus(t("statusNothingToClean"));
     return;
   }
   cleanNowBtn.disabled = true;
-  cleanNowBtn.textContent = "Cleaning up…";
+  cleanNowBtn.textContent = t("cleanNowBusy");
   chrome.runtime.sendMessage({ type: "CLEAN_NOW" }, (response) => {
     cleanNowBtn.disabled = false;
-    cleanNowBtn.textContent = "Clean up now";
+    cleanNowBtn.textContent = t("cleanNowButton");
     const removed = response && typeof response.removed === "number" ? response.removed : 0;
     setStatus(
-      removed === 0
-        ? "Nothing matching found in your existing history."
-        : `Cleaned up ${removed} matching ${removed === 1 ? "entry" : "entries"} from history.`,
+      removed === 0 ? t("statusNothingFound") : tn("statusCleanedUp", removed),
       true
     );
   });
@@ -304,7 +348,7 @@ cleanNowBtn.addEventListener("click", () => {
 
 function exportSites() {
   if (sites.length === 0) {
-    setStatus("Add a site before exporting — the list is empty.");
+    setStatus(t("exportEmpty"));
     return;
   }
   const payload = { version: 1, exportedAt: new Date().toISOString(), sites };
@@ -319,7 +363,7 @@ function exportSites() {
   a.remove();
   URL.revokeObjectURL(url);
 
-  setStatus(`Exported ${sites.length} ${sites.length === 1 ? "site" : "sites"}.`);
+  setStatus(tn("exportDone", sites.length));
 }
 
 function importSites(file) {
@@ -329,7 +373,7 @@ function importSites(file) {
     try {
       parsed = JSON.parse(reader.result);
     } catch (e) {
-      setStatus("That file isn't valid JSON.", true);
+      setStatus(t("importInvalidJson"), true);
       return;
     }
 
@@ -338,7 +382,7 @@ function importSites(file) {
     const incoming = toSiteConfigs(rawList).filter((s) => isValidDomain(s.domain));
 
     if (incoming.length === 0) {
-      setStatus("No valid sites found in that file.", true);
+      setStatus(t("importNoSites"), true);
       return;
     }
 
@@ -362,9 +406,9 @@ function importSites(file) {
     const saved = await saveSites(next, (text) => setStatus(text, true));
     if (!saved) return;
     render();
-    setStatus(`Imported: ${added} added, ${updated} updated.`, true);
+    setStatus(t("importDone", added, updated), true);
   };
-  reader.onerror = () => setStatus("Couldn't read that file.", true);
+  reader.onerror = () => setStatus(t("importReadError"), true);
   reader.readAsText(file);
 }
 
@@ -378,38 +422,40 @@ importFileInput.addEventListener("change", () => {
 
 // --- Automatic sweep status ------------------------------------------
 
+// Intl handles the wording and the plural forms of "5 minutes ago" per
+// language, so only "just now" needs a message of its own.
 function formatRelativeTime(ms) {
-  const diff = Date.now() - ms;
-  const minutes = Math.round(diff / 60000);
-  if (minutes < 1) return "just now";
-  if (minutes === 1) return "1 minute ago";
-  if (minutes < 60) return `${minutes} minutes ago`;
+  const minutes = Math.round((Date.now() - ms) / 60000);
+  if (minutes < 1) return t("justNow");
+  if (minutes < 60) return relativeTime.format(-minutes, "minute");
   const hours = Math.round(minutes / 60);
-  if (hours === 1) return "1 hour ago";
-  if (hours < 24) return `${hours} hours ago`;
-  const days = Math.round(hours / 24);
-  return days === 1 ? "1 day ago" : `${days} days ago`;
+  if (hours < 24) return relativeTime.format(-hours, "hour");
+  return relativeTime.format(-Math.round(hours / 24), "day");
 }
 
-const TRIGGER_LABEL = {
-  manual: "manual clean-up",
-  periodic: "automatic clean-up",
-  startup: "startup clean-up",
-  install: "first run"
+const TRIGGER_LABEL_KEY = {
+  manual: "sweepLabelManual",
+  periodic: "sweepLabelPeriodic",
+  startup: "sweepLabelStartup",
+  install: "sweepLabelInstall"
 };
 
 function renderAutoSweepInfo(lastSweep) {
   if (!lastSweep) {
-    autoSweepInfo.textContent =
-      "Runs automatically every 30 minutes and on Chrome startup. No clean-up has run yet.";
+    autoSweepInfo.textContent = t("autoSweepNever");
     return;
   }
-  const label = TRIGGER_LABEL[lastSweep.trigger] || "clean-up";
+  const label = t(TRIGGER_LABEL_KEY[lastSweep.trigger] || "sweepLabelUnknown");
   const removedText =
     lastSweep.removed === 0
-      ? "nothing to remove"
-      : `removed ${lastSweep.removed} ${lastSweep.removed === 1 ? "entry" : "entries"}`;
-  autoSweepInfo.textContent = `Last ${label}: ${formatRelativeTime(lastSweep.time)} — ${removedText}.`;
+      ? t("sweepRemovedNothing")
+      : tn("sweepRemoved", lastSweep.removed);
+  autoSweepInfo.textContent = t(
+    "lastSweepLine",
+    label,
+    formatRelativeTime(lastSweep.time),
+    removedText
+  );
 }
 
 chrome.storage.local.get({ lastSweep: null }, (data) => {

@@ -1,8 +1,18 @@
 <!DOCTYPE html>
+<!--
+  UI copy lives in _locales/<lang>/messages.json; options.js swaps it in on
+  load (see localizeDocument):
+    data-i18n             -> textContent
+    data-i18n-placeholder -> placeholder attribute
+    data-i18n-title       -> title attribute
+  The English text below is the fallback shown when the page runs outside the
+  extension (opening this file directly to check layout) — test/i18n.test.js
+  keeps it identical to _locales/en/messages.json, so edit both together.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>History Auto-Cleaner — Settings</title>
+<title data-i18n="optionsTitle">History Auto-Cleaner — Settings</title>
 <link rel="stylesheet" href="options.css" />
 </head>
 <body>
@@ -15,58 +25,62 @@
         <line x1="5.5" y1="18.2" x2="18.2" y2="5.7" stroke="#C1502E" stroke-width="1.8" stroke-linecap="round"/>
       </svg>
       <div>
-        <h1>History Auto-Cleaner</h1>
-        <p class="tagline">Sites on this list never stay in your history.</p>
+        <h1 data-i18n="appName">History Auto-Cleaner</h1>
+        <p class="tagline" data-i18n="tagline">Sites on this list never stay in your history.</p>
       </div>
     </header>
 
     <section class="add-row">
-      <label class="visually-hidden" for="site-input">Website to remove</label>
+      <label class="visually-hidden" for="site-input" data-i18n="siteInputLabel">Website to remove</label>
       <input
         id="site-input"
         type="text"
         placeholder="e.g. example.com or site.com/forum/"
+        data-i18n-placeholder="siteInputPlaceholder"
         autocomplete="off"
         spellcheck="false"
       />
-      <button id="add-btn" class="btn btn-primary" type="button">Add site</button>
+      <button id="add-btn" class="btn btn-primary" type="button" data-i18n="addSiteButton">Add site</button>
     </section>
 
     <label class="switch add-switch">
       <input type="checkbox" id="keep-homepage-input" />
       <span class="track" aria-hidden="true"></span>
       <span class="switch-text">
-        Keep the exact page above, only delete deeper ones
-        <span class="switch-sub">site.com/ stays, site.com/page goes — or scope it: site.com/forum/ stays, site.com/forum/post goes</span>
+        <span data-i18n="addSwitchText">Keep the exact page above, only delete deeper ones</span>
+        <span class="switch-sub" data-i18n="addSwitchHint">site.com/ stays, site.com/page goes — or scope it: site.com/forum/ stays, site.com/forum/post goes</span>
       </span>
     </label>
 
     <p id="input-hint" class="hint"></p>
 
     <section class="toolbar">
-      <button id="export-btn" class="btn-text" type="button">Export</button>
-      <button id="import-btn" class="btn-text" type="button">Import</button>
+      <button id="export-btn" class="btn-text" type="button" data-i18n="exportButton">Export</button>
+      <button id="import-btn" class="btn-text" type="button" data-i18n="importButton">Import</button>
       <input type="file" id="import-file-input" accept="application/json" hidden />
       <button
         id="clean-now-btn"
         class="btn btn-ghost"
         type="button"
         title="History is cleaned up automatically every 30 minutes and on Chrome startup. Click to clean up right now instead of waiting."
+        data-i18n="cleanNowButton"
+        data-i18n-title="cleanNowTitle"
       >Clean up now</button>
     </section>
 
     <section class="list-section">
       <div class="list-heading">
         <div class="list-heading-left">
-          <h2>Blocked sites</h2>
+          <h2 data-i18n="blockedSitesHeading">Blocked sites</h2>
           <span id="count-badge" class="count-badge">0</span>
         </div>
-        <label class="visually-hidden" for="filter-input">Filter the list</label>
+        <label class="visually-hidden" for="filter-input" data-i18n="filterLabel">Filter the list</label>
         <input
           id="filter-input"
           class="filter-input"
           type="search"
           placeholder="Filter list…"
+          data-i18n-placeholder="filterPlaceholder"
           autocomplete="off"
           spellcheck="false"
           hidden
@@ -75,10 +89,7 @@
 
       <ul id="site-list" class="site-list"></ul>
 
-      <p id="empty-state" class="empty-state">
-        No sites yet. Add a domain (example.com) or a specific section (site.com/forum/) —
-        matching pages, including subdomains, will be cleaned up automatically.
-      </p>
+      <p id="empty-state" class="empty-state" data-i18n="emptyState">No sites yet. Add a domain (example.com) or a specific section (site.com/forum/) — matching pages, including subdomains, will be cleaned up automatically.</p>
 
       <p id="no-matches" class="empty-state"></p>
     </section>

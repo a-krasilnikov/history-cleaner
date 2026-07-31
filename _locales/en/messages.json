@@ -1,0 +1,273 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner",
+    "description": "Extension name. Product name — keep untranslated unless the locale has an established form."
+  },
+  "appDescription": {
+    "message": "Automatically deletes visits to the websites you choose from your browser history.",
+    "description": "Web Store / extensions-page description. Max 132 characters."
+  },
+  "actionTitle": {
+    "message": "History Auto-Cleaner settings",
+    "description": "Tooltip on the toolbar icon."
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — Settings",
+    "description": "Browser tab title of the settings page."
+  },
+  "tagline": {
+    "message": "Sites on this list never stay in your history."
+  },
+
+  "siteInputLabel": {
+    "message": "Website to remove",
+    "description": "Screen-reader label for the add-site text field."
+  },
+  "siteInputPlaceholder": {
+    "message": "e.g. example.com or site.com/forum/",
+    "description": "Keep the example domains as-is; they are not real sites."
+  },
+  "addSiteButton": {
+    "message": "Add site"
+  },
+  "addSwitchText": {
+    "message": "Keep the exact page above, only delete deeper ones",
+    "description": "Toggle next to the add field: keep the page that was typed, delete pages nested under it."
+  },
+  "addSwitchHint": {
+    "message": "site.com/ stays, site.com/page goes — or scope it: site.com/forum/ stays, site.com/forum/post goes",
+    "description": "Example line under the toggle. Shown in a monospace font; keep the URLs as-is."
+  },
+
+  "exportButton": {
+    "message": "Export"
+  },
+  "importButton": {
+    "message": "Import"
+  },
+  "cleanNowButton": {
+    "message": "Clean up now"
+  },
+  "cleanNowTitle": {
+    "message": "History is cleaned up automatically every 30 minutes and on Chrome startup. Click to clean up right now instead of waiting.",
+    "description": "Tooltip on the \"Clean up now\" button."
+  },
+  "cleanNowBusy": {
+    "message": "Cleaning up…",
+    "description": "\"Clean up now\" button label while a clean-up is running."
+  },
+
+  "blockedSitesHeading": {
+    "message": "Blocked sites",
+    "description": "Heading above the rule list. Rendered uppercase."
+  },
+  "filterLabel": {
+    "message": "Filter the list",
+    "description": "Screen-reader label for the filter box."
+  },
+  "filterPlaceholder": {
+    "message": "Filter list…"
+  },
+  "emptyState": {
+    "message": "No sites yet. Add a domain (example.com) or a specific section (site.com/forum/) — matching pages, including subdomains, will be cleaned up automatically."
+  },
+  "noMatches": {
+    "message": "No sites match \"$QUERY$\".",
+    "description": "Shown when the filter box hides every rule.",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ all subdomains",
+    "description": "Note after a domain in the list: the rule also covers its subdomains."
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ all subdomains, scoped to $PATH$",
+    "description": "Same note for a rule limited to one section of the site.",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "Remove $SITE$ from the list",
+    "description": "Screen-reader label for the ✕ button on a row.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "Keep homepage",
+    "description": "Per-row toggle for a whole-domain rule."
+  },
+  "rowKeepThisPage": {
+    "message": "Keep this page itself",
+    "description": "Per-row toggle for a rule scoped to a section."
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ will stay — only deeper pages are removed.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "Every page under $SITE$ will be removed.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "Type a domain first, e.g. example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "\"$INPUT$\" doesn't look like a valid domain.",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ is already on the list.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "Added $SITE$.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "Added $SITE$ — that page stays, deeper pages are removed.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "Removed $SITE$.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "Couldn't save — sync storage is full (about 100 rules). Remove a rule and try again."
+  },
+  "saveErrorTooManyWrites": {
+    "message": "Couldn't save — too many changes at once. Wait a moment and try again."
+  },
+  "saveErrorGeneric": {
+    "message": "Couldn't save settings: $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "unknown error",
+    "description": "Substituted into saveErrorGeneric when the browser gives no reason."
+  },
+
+  "statusNothingToClean": {
+    "message": "Add a site first — nothing to clean up yet."
+  },
+  "statusNothingFound": {
+    "message": "Nothing matching found in your existing history."
+  },
+  "statusCleanedUp_one": {
+    "message": "Cleaned up $COUNT$ matching entry from history.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "statusCleanedUp_other": {
+    "message": "Cleaned up $COUNT$ matching entries from history.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "Add a site before exporting — the list is empty."
+  },
+  "exportDone_one": {
+    "message": "Exported $COUNT$ site.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "exportDone_other": {
+    "message": "Exported $COUNT$ sites.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "That file isn't valid JSON."
+  },
+  "importNoSites": {
+    "message": "No valid sites found in that file."
+  },
+  "importReadError": {
+    "message": "Couldn't read that file."
+  },
+  "importDone": {
+    "message": "Imported: $ADDED$ added, $UPDATED$ updated.",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "Runs automatically every 30 minutes and on Chrome startup. No clean-up has run yet."
+  },
+  "lastSweepLine": {
+    "message": "Last $LABEL$: $TIME$ — $RESULT$.",
+    "description": "Footer line. $LABEL$ is one of the sweepLabel* messages, $TIME$ a relative time (\"5 minutes ago\"), $RESULT$ either sweepRemovedNothing or sweepRemoved_*.",
+    "placeholders": {
+      "label": { "content": "$1", "example": "automatic clean-up" },
+      "time": { "content": "$2", "example": "5 minutes ago" },
+      "result": { "content": "$3", "example": "removed 3 entries" }
+    }
+  },
+  "justNow": {
+    "message": "just now",
+    "description": "Relative time for something that happened less than a minute ago."
+  },
+  "sweepLabelManual": {
+    "message": "manual clean-up",
+    "description": "Goes into lastSweepLine after \"Last\"."
+  },
+  "sweepLabelPeriodic": {
+    "message": "automatic clean-up"
+  },
+  "sweepLabelStartup": {
+    "message": "startup clean-up"
+  },
+  "sweepLabelInstall": {
+    "message": "install clean-up",
+    "description": "The clean-up that runs once when the extension is installed or updated."
+  },
+  "sweepLabelUnknown": {
+    "message": "clean-up",
+    "description": "Fallback label for a trigger this version doesn't know."
+  },
+  "sweepRemovedNothing": {
+    "message": "nothing to remove",
+    "description": "Goes into lastSweepLine as $RESULT$."
+  },
+  "sweepRemoved_one": {
+    "message": "removed $COUNT$ entry",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "sweepRemoved_other": {
+    "message": "removed $COUNT$ entries",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}

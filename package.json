@@ -6,6 +6,6 @@
   "license": "MIT",
   "scripts": {
     "test": "node --test",
-    "pack": "git archive --format=zip -o history-auto-cleaner.zip HEAD -- manifest.json background.js options.html options.css options.js icons"
+    "pack": "git archive --format=zip -o history-auto-cleaner.zip HEAD -- manifest.json background.js options.html options.css options.js icons _locales"
   }
 }
