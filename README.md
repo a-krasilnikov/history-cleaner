@@ -43,8 +43,8 @@ it never wipes existing rules.
 
 ## Languages
 
-The settings page follows your browser's language. English ships today and is
-the fallback for everything else. Translations live in
+The settings page follows your browser's language. English and Russian ship
+today; any other language falls back to English. Translations live in
 `_locales/<lang>/messages.json` — adding one is a folder, not a code change.
 
 ## Permissions

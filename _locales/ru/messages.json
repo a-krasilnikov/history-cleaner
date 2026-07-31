@@ -1,0 +1,284 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "Автоматически удаляет из истории браузера посещения выбранных вами сайтов."
+  },
+  "actionTitle": {
+    "message": "Настройки History Auto-Cleaner"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — настройки"
+  },
+  "tagline": {
+    "message": "Сайты из этого списка не задерживаются в истории."
+  },
+
+  "siteInputLabel": {
+    "message": "Сайт, который нужно удалять"
+  },
+  "siteInputPlaceholder": {
+    "message": "например, example.com или site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "Добавить"
+  },
+  "addSwitchText": {
+    "message": "Оставлять саму эту страницу, удалять только вложенные"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ останется, site.com/page удалится — или укажите раздел: site.com/forum/ останется, site.com/forum/post удалится"
+  },
+
+  "exportButton": {
+    "message": "Экспорт"
+  },
+  "importButton": {
+    "message": "Импорт"
+  },
+  "cleanNowButton": {
+    "message": "Очистить сейчас"
+  },
+  "cleanNowTitle": {
+    "message": "История очищается автоматически каждые 30 минут и при запуске Chrome. Нажмите, чтобы очистить прямо сейчас, не дожидаясь."
+  },
+  "cleanNowBusy": {
+    "message": "Очищаем…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "Список сайтов"
+  },
+  "filterLabel": {
+    "message": "Фильтр списка"
+  },
+  "filterPlaceholder": {
+    "message": "Поиск в списке…"
+  },
+  "emptyState": {
+    "message": "Список пуст. Добавьте домен (example.com) или отдельный раздел (site.com/forum/) — подходящие страницы, включая поддомены, будут удаляться автоматически."
+  },
+  "noMatches": {
+    "message": "Ничего не найдено по запросу «$QUERY$».",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ все поддомены"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ все поддомены, только раздел $PATH$",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "Удалить $SITE$ из списка",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "Оставлять главную"
+  },
+  "rowKeepThisPage": {
+    "message": "Оставлять саму страницу"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ останется — удаляются только вложенные страницы.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "Все страницы на $SITE$ будут удаляться.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "Сначала введите домен, например example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "«$INPUT$» не похоже на корректный домен.",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ уже есть в списке.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "Добавлено: $SITE$.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "Добавлено: $SITE$ — эта страница останется, вложенные будут удаляться.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "Удалено: $SITE$.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "Не удалось сохранить — хранилище синхронизации заполнено (около 100 правил). Удалите одно правило и попробуйте снова."
+  },
+  "saveErrorTooManyWrites": {
+    "message": "Не удалось сохранить — слишком много изменений подряд. Подождите немного и попробуйте снова."
+  },
+  "saveErrorGeneric": {
+    "message": "Не удалось сохранить настройки: $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "неизвестная ошибка"
+  },
+
+  "statusNothingToClean": {
+    "message": "Сначала добавьте сайт — очищать пока нечего."
+  },
+  "statusNothingFound": {
+    "message": "В истории не нашлось подходящих записей."
+  },
+  "statusCleanedUp_one": {
+    "message": "Из истории удалена $COUNT$ подходящая запись.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "statusCleanedUp_few": {
+    "message": "Из истории удалено $COUNT$ подходящие записи.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "3" }
+    }
+  },
+  "statusCleanedUp_many": {
+    "message": "Из истории удалено $COUNT$ подходящих записей.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "statusCleanedUp_other": {
+    "message": "Из истории удалено $COUNT$ подходящих записей.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "Добавьте сайт перед экспортом — список пуст."
+  },
+  "exportDone_one": {
+    "message": "Экспортирован $COUNT$ сайт.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "exportDone_few": {
+    "message": "Экспортировано $COUNT$ сайта.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "3" }
+    }
+  },
+  "exportDone_many": {
+    "message": "Экспортировано $COUNT$ сайтов.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "exportDone_other": {
+    "message": "Экспортировано $COUNT$ сайтов.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "Это не корректный JSON-файл."
+  },
+  "importNoSites": {
+    "message": "В этом файле не нашлось корректных сайтов."
+  },
+  "importReadError": {
+    "message": "Не удалось прочитать файл."
+  },
+  "importDone": {
+    "message": "Импорт завершён: добавлено $ADDED$, обновлено $UPDATED$.",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "Очистка запускается автоматически каждые 30 минут и при запуске Chrome. Пока она ни разу не выполнялась."
+  },
+  "lastSweepLine": {
+    "message": "Последняя $LABEL$: $TIME$ — $RESULT$.",
+    "placeholders": {
+      "label": { "content": "$1", "example": "автоматическая очистка" },
+      "time": { "content": "$2", "example": "5 минут назад" },
+      "result": { "content": "$3", "example": "удалено 3 записи" }
+    }
+  },
+  "justNow": {
+    "message": "только что"
+  },
+  "sweepLabelManual": {
+    "message": "ручная очистка"
+  },
+  "sweepLabelPeriodic": {
+    "message": "автоматическая очистка"
+  },
+  "sweepLabelStartup": {
+    "message": "очистка при запуске"
+  },
+  "sweepLabelInstall": {
+    "message": "очистка при установке"
+  },
+  "sweepLabelUnknown": {
+    "message": "очистка"
+  },
+  "sweepRemovedNothing": {
+    "message": "удалять было нечего"
+  },
+  "sweepRemoved_one": {
+    "message": "удалена $COUNT$ запись",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "sweepRemoved_few": {
+    "message": "удалено $COUNT$ записи",
+    "placeholders": {
+      "count": { "content": "$1", "example": "3" }
+    }
+  },
+  "sweepRemoved_many": {
+    "message": "удалено $COUNT$ записей",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "sweepRemoved_other": {
+    "message": "удалено $COUNT$ записей",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}

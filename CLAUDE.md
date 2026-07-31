@@ -15,7 +15,7 @@ dependencies, no network access. Load unpacked to run (see below).
 | `manifest.json` | MV3 manifest. Permissions: `history`, `storage`, `alarms`. No host permissions — keep it that way. `minimum_chrome_version: 111` (Mar 2023) — at 111+ every chrome.* API used here supports promises (`chrome.alarms` was the last, at 111), so promise-form/`await` calls are safe throughout; no per-API version checks needed. |
 | `background.js` | Service worker. The cleaning engine: live listener + sweeps + matching logic. |
 | `options.html/.css/.js` | The only UI. Opens on toolbar-icon click. Vanilla JS, no framework. |
-| `_locales/<lang>/messages.json` | All UI copy, Chrome i18n format. `en` is the `default_locale`. |
+| `_locales/<lang>/messages.json` | All UI copy, Chrome i18n format. `en` is the `default_locale`; `ru` ships too. |
 | `icons/` | 16/48/128 px action + extension icons. |
 | `docs/PRD.md` | Product spec — source of truth for intended behavior, matching examples, edge cases. |
 | `test/` | Unit tests for the matching core and the locale catalogues. Node built-in runner, no deps. |
@@ -111,7 +111,7 @@ falls back to it per-message, so a partial translation is safe.
 - **options.js**: `t(key, ...subs)` for a string, `tn(key, count)` for
   anything counted. `tn` resolves `<key>_one` / `_few` / `_many` / `_other`
   through `Intl.PluralRules`, so every locale needs each category its
-  language actually has — English two, Slavic languages three.
+  language actually has — English two, Russian three.
 - Relative times come from `Intl.RelativeTimeFormat`, not from messages; only
   "just now" (`justNow`) is a string.
 - `localizeDocument` also sets `<html dir>` from Chrome's predefined
