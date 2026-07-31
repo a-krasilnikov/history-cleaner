@@ -18,6 +18,7 @@ dependencies, no network access. Load unpacked to run (see below).
 | `_locales/<lang>/messages.json` | All UI copy, Chrome i18n format. `en` is the `default_locale`; `ru` ships too. |
 | `icons/` | 16/48/128 px action + extension icons. |
 | `docs/PRD.md` | Product spec — source of truth for intended behavior, matching examples, edge cases. |
+| `store/` | Web Store listing description, one file per language. Dashboard-only copy; never packaged. |
 | `test/` | Unit tests for the matching core and the locale catalogues. Node built-in runner, no deps. |
 | `package.json` | Metadata + `npm test` / `npm run pack` scripts. No dependencies. |
 | `.github/workflows/test.yml` | CI: `node --test` on Node 22/24, every push to master + PRs. |

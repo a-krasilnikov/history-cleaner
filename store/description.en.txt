@@ -1,0 +1,21 @@
+Define the sites you don't want in your browser history. They're deleted the moment you visit them — automatically, forever. Everything else stays untouched, so your history keeps working normally.
+
+No mode to remember to turn on. No cleanup ritual. You add a site once and stop thinking about it.
+
+WHAT YOU GET
+
+• Whole domains or exact sections — example.com, or just example.com/section
+• Subdomains included — one rule covers news.example.com, shop.example.com, all of it
+• Keep the homepage, drop the rest — optional, per site
+• Clean up existing history in one click, not just future visits
+• Your list syncs across every Chrome you're signed into
+
+PRIVACY
+
+It makes zero network requests. There's no server, no analytics, no tracking, no ads, no account. It can't read the pages you visit. Free and open source — read every line yourself or just build it
+
+PERMISSIONS
+
+History — to delete the entries matching your rules.
+Storage — to save your list.
+Alarms — to run a periodic background cleanup. Nothing else.
