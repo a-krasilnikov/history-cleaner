@@ -14,6 +14,7 @@ let blockedSites = [];
 
 const ALARM_NAME = "periodicHistorySweep";
 const SWEEP_INTERVAL_MINUTES = 30;
+const CONTEXT_MENU_ID = "addSiteFromPage";
 
 /** Lowercases + strips protocol/www down to a bare hostname. */
 function normalizeDomain(input) {
@@ -153,6 +154,52 @@ chrome.action.onClicked.addListener(() => {
   chrome.runtime.openOptionsPage();
 });
 
+// --- "Add this site" from the page context menu ---------------------------
+
+// The menu title can't name the site: knowing the active tab's URL up front
+// would mean the "tabs" permission, and reading URLs of every tab is a bigger
+// grant than this feature is worth. The title stays generic and the domain is
+// filled into the settings field instead — where the user confirms it anyway.
+async function ensureContextMenu() {
+  // Menu items outlive the service worker, so this runs on install/update
+  // only; clearing first keeps a re-created item from colliding with the old
+  // one (and picks up a changed title or UI language).
+  await chrome.contextMenus.removeAll();
+  chrome.contextMenus.create({
+    id: CONTEXT_MENU_ID,
+    title: chrome.i18n.getMessage("contextMenuAddSite"),
+    contexts: ["page"],
+    // Only pages that can land in history at all — no chrome://, no file://.
+    documentUrlPatterns: ["http://*/*", "https://*/*"]
+  });
+}
+
+/** Bare hostname of an http(s) URL, www stripped. "" for anything else. */
+function domainFromUrl(urlString) {
+  let url;
+  try {
+    url = new URL(urlString);
+  } catch (e) {
+    return "";
+  }
+  if (url.protocol !== "http:" && url.protocol !== "https:") return "";
+  return normalizeDomain(url.hostname);
+}
+
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+  if (info.menuItemId !== CONTEXT_MENU_ID) return;
+
+  // activeTab is granted for this click, so the page URL is readable here.
+  const domain = domainFromUrl(info.pageUrl || (tab && tab.url));
+  if (!domain) return;
+
+  // openOptionsPage() takes no arguments, so the domain is handed over
+  // through storage: a settings page opening now reads it on load, one that
+  // was already open picks it up via storage.onChanged. It clears the key.
+  await chrome.storage.local.set({ pendingSite: domain });
+  chrome.runtime.openOptionsPage();
+});
+
 // --- Periodic + startup sweeps -------------------------------------------
 
 function ensureAlarm() {
@@ -165,6 +212,7 @@ function ensureAlarm() {
 
 chrome.runtime.onInstalled.addListener(() => {
   ensureAlarm();
+  ensureContextMenu();
   sweepHistory("install");
 });
 

@@ -33,6 +33,9 @@ const EN = CATALOGUE[DEFAULT_LOCALE];
 const MANIFEST = read("manifest.json");
 const HTML = read("options.html");
 const JS = read("options.js");
+// background.js is otherwise unlocalized, but the context-menu title has to
+// come from the catalogue — so it counts as a reference site too.
+const BACKGROUND = read("background.js");
 
 // tn() in options.js builds "<base>_<category>" at runtime, so a plural message
 // is referenced in code by its base name only.
@@ -126,7 +129,7 @@ describe("locale catalogues", () => {
   }
 
   it("has no message that nothing references", () => {
-    const code = HTML + JS + MANIFEST;
+    const code = HTML + JS + MANIFEST + BACKGROUND;
     const orphans = Object.keys(EN).filter((key) => !code.includes(baseKey(key)));
     assert.deepEqual(orphans, [], "dead messages (or a key misspelled in the code)");
   });

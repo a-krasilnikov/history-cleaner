@@ -39,6 +39,18 @@
     "description": "Example line under the toggle. Shown in a monospace font; keep the URLs as-is."
   },
 
+  "contextMenuAddSite": {
+    "message": "Auto-clean history for this site…",
+    "description": "Right-click menu entry on any web page. It opens the settings page with the site's domain already typed in — the title stays generic because the extension deliberately can't read tab URLs ahead of the click."
+  },
+  "statusPrefilled": {
+    "message": "$SITE$ is filled in — press “Add site” to confirm.",
+    "description": "Status line after the right-click menu opened settings with the domain prefilled. Keep the button name in sync with addSiteButton.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
   "exportButton": {
     "message": "Export"
   },

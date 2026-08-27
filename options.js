@@ -462,13 +462,58 @@ chrome.storage.local.get({ lastSweep: null }, (data) => {
   renderAutoSweepInfo(data.lastSweep);
 });
 
+// --- "Add this site" hand-off from the page context menu ---------------
+// openOptionsPage() takes no arguments, so background.js leaves the domain in
+// storage.local instead. Whichever page picks it up clears the key, so coming
+// back to settings later doesn't arrive prefilled out of nowhere.
+
+/** Drops `domain` into the add field, ready for the user to confirm. */
+function prefillSite(domain) {
+  if (!domain) return;
+  chrome.storage.local.remove("pendingSite");
+
+  input.value = domain;
+  // Caret at the end rather than a select-all: the likely edit is appending a
+  // section (site.com → site.com/forum/), which select-all would get in the
+  // way of.
+  input.focus();
+  input.setSelectionRange(domain.length, domain.length);
+  // The page may already have been open and scrolled elsewhere — a short
+  // flash points at the field that just changed under the user.
+  input.classList.remove("prefilled");
+  void input.offsetWidth; // restart the animation if it's still running
+  input.classList.add("prefilled");
+
+  // Say up front what pressing "Add site" would say anyway — an IP or a
+  // dotless host (localhost) isn't something this extension makes rules for.
+  if (!isValidDomain(domain)) {
+    setHint(t("hintInvalidDomain", domain));
+    return;
+  }
+  // The rule the button would create is the whole domain, path "/".
+  if (sites.some((s) => s.domain === domain && s.path === "/")) {
+    setHint(t("hintDuplicate", domain));
+    return;
+  }
+  setHint("");
+  setStatus(t("statusPrefilled", domain));
+}
+
 chrome.storage.onChanged.addListener((changes, area) => {
-  if (area === "local" && changes.lastSweep) {
+  if (area !== "local") return;
+  if (changes.lastSweep) {
     renderAutoSweepInfo(changes.lastSweep.newValue);
+  }
+  // Fires on a page that was already open when the menu item was clicked.
+  if (changes.pendingSite && changes.pendingSite.newValue) {
+    prefillSite(changes.pendingSite.newValue);
   }
 });
 
 chrome.storage.sync.get({ sites: [] }, (data) => {
   sites = toSiteConfigs(data.sites);
   render();
+  // Read the hand-off only once the list is in memory — prefillSite checks it
+  // for a duplicate.
+  chrome.storage.local.get({ pendingSite: "" }, (local) => prefillSite(local.pendingSite));
 });

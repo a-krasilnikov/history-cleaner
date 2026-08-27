@@ -31,6 +31,9 @@ function load(sites = [], opts = {}) {
     };
   };
   const deleted = [];
+  const menus = [];
+  const localData = {};
+  const opened = [];
   const chrome = {
     storage: {
       // Promise-form, as background.js uses (safe at minimum_chrome_version 111).
@@ -41,15 +44,34 @@ function load(sites = [], opts = {}) {
         },
         set: noop
       },
-      local: { get: async (d) => d, set: noop },
+      local: { get: async (d) => d, set: (items) => Object.assign(localData, items) },
       onChanged: evt()
     },
     alarms: { get: (_n, cb) => cb(undefined), create: noop, onAlarm: evt() },
-    runtime: { onInstalled: evt(), onStartup: evt(), onMessage: evt(), openOptionsPage: noop },
+    runtime: {
+      onInstalled: evt(),
+      onStartup: evt(),
+      onMessage: evt(),
+      openOptionsPage: () => opened.push(true)
+    },
     history: { onVisited: evt(), deleteUrl: (arg) => deleted.push(arg.url), search: async () => [] },
-    action: { onClicked: evt() }
+    action: { onClicked: evt() },
+    contextMenus: {
+      removeAll: async () => menus.splice(0, menus.length),
+      create: (props) => menus.push(props),
+      onClicked: evt()
+    },
+    i18n: { getMessage: (key) => `<${key}>` }
   };
-  const sandbox = { chrome, URL, console, __deleted: deleted };
+  const sandbox = {
+    chrome,
+    URL,
+    console,
+    __deleted: deleted,
+    __menus: menus,
+    __local: localData,
+    __opened: opened
+  };
   vm.createContext(sandbox);
   vm.runInContext(SOURCE, sandbox);
   return sandbox;
@@ -290,5 +312,59 @@ describe("cold start: waking visit races the rules load", () => {
     releaseStorage();
     await Promise.all(handlers);
     assert.deepEqual(sandbox.__deleted, ["https://example.com/feed"]);
+  });
+});
+
+// --- "Add this site" from the page context menu ----------------------------
+// The click handler is the only place that turns a page URL into a rule
+// candidate. It must reduce the URL exactly like typing the domain by hand
+// would, and refuse anything that can't be a rule.
+
+describe("context menu: add the current site", () => {
+  const CLICK = { menuItemId: "addSiteFromPage" };
+
+  /** Fires a menu click on `pageUrl` in a fresh worker and settles it. */
+  async function click(pageUrl, item = CLICK) {
+    const sandbox = load();
+    await Promise.all(
+      sandbox.chrome.contextMenus.onClicked.fire({ ...item, pageUrl })
+    );
+    return sandbox;
+  }
+
+  it("registers one menu item, limited to http(s) pages", async () => {
+    const sandbox = load();
+    await Promise.all(sandbox.chrome.runtime.onInstalled.fire());
+    await flush();
+    assert.equal(sandbox.__menus.length, 1);
+    // Spread first: arrays built inside the vm sandbox are cross-realm, so
+    // deepEqual would reject them against plain host arrays.
+    assert.deepEqual([...sandbox.__menus[0].documentUrlPatterns], ["http://*/*", "https://*/*"]);
+    assert.deepEqual([...sandbox.__menus[0].contexts], ["page"]);
+  });
+
+  it("hands the bare domain to the settings page and opens it", async () => {
+    const sandbox = await click("https://www.Reddit.com/r/news?sort=new#top");
+    assert.equal(sandbox.__local.pendingSite, "reddit.com");
+    assert.equal(sandbox.__opened.length, 1);
+  });
+
+  it("keeps subdomains — the rule the user sees is the host they were on", async () => {
+    const sandbox = await click("https://news.example.co.uk/story/1");
+    assert.equal(sandbox.__local.pendingSite, "news.example.co.uk");
+  });
+
+  it("ignores URLs that can't become a rule", async () => {
+    for (const url of ["chrome://settings", "file:///c:/tmp/page.html", "not a url", ""]) {
+      const sandbox = await click(url);
+      assert.equal(sandbox.__local.pendingSite, undefined, url);
+      assert.deepEqual(sandbox.__opened, [], url);
+    }
+  });
+
+  it("ignores clicks on some other extension's menu item", async () => {
+    const sandbox = await click("https://example.com/", { menuItemId: "somethingElse" });
+    assert.equal(sandbox.__local.pendingSite, undefined);
+    assert.deepEqual(sandbox.__opened, []);
   });
 });

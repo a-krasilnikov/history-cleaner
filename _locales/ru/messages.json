@@ -31,6 +31,16 @@
     "message": "site.com/ останется, site.com/page удалится — или укажите раздел: site.com/forum/ останется, site.com/forum/post удалится"
   },
 
+  "contextMenuAddSite": {
+    "message": "Автоочистка истории для этого сайта…"
+  },
+  "statusPrefilled": {
+    "message": "Адрес $SITE$ подставлен — нажмите «Добавить».",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
   "exportButton": {
     "message": "Экспорт"
   },
