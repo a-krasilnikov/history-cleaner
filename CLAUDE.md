@@ -12,7 +12,7 @@ dependencies, no network access. Load unpacked to run (see below).
 
 | File | Role |
 |------|------|
-| `manifest.json` | MV3 manifest. Permissions: `history`, `storage`, `alarms`. No host permissions — keep it that way. `minimum_chrome_version: 111` (Mar 2023) — at 111+ every chrome.* API used here supports promises (`chrome.alarms` was the last, at 111), so promise-form/`await` calls are safe throughout; no per-API version checks needed. |
+| `manifest.json` | MV3 manifest. Permissions: `history`, `storage`, `alarms`, `contextMenus`, `activeTab`. No host permissions — keep it that way (`activeTab` is the deliberate alternative: access to one tab, granted only by the user's context-menu click). `minimum_chrome_version: 111` (Mar 2023) — at 111+ every chrome.* API used here supports promises (`chrome.alarms` was the last, at 111), so promise-form/`await` calls are safe throughout; no per-API version checks needed. |
 | `background.js` | Service worker. The cleaning engine: live listener + sweeps + matching logic. |
 | `options.html/.css/.js` | The only UI. Opens on toolbar-icon click. Vanilla JS, no framework. |
 | `_locales/<lang>/messages.json` | All UI copy, Chrome i18n format. `en` is the `default_locale`; `ru` ships too. |
@@ -86,6 +86,33 @@ live listener locally). `ensureAlarm` checks `alarms.get` before creating to
 avoid duplicates. Every sweep writes `{ time, trigger, removed }` to
 `storage.local.lastSweep`.
 
+## Context menu → prefilled settings
+
+Right-click on any http(s) page offers `contextMenuAddSite`. The click handler
+in `background.js` turns `info.pageUrl` into a bare domain, writes it to
+`storage.local.pendingSite`, and calls `openOptionsPage()`.
+
+Three constraints shaped this and are easy to break by "improving" it:
+
+- **The title can't name the site.** Rendering "…for reddit.com" means reading
+  the active tab's URL before the click, i.e. the `tabs` permission — standing
+  access to every tab's URL. Rejected deliberately; the domain goes into the
+  input instead.
+- **The hand-off goes through storage, not a URL parameter.**
+  `openOptionsPage()` takes no arguments and reuses an already-open settings
+  tab. `options.js` reads `pendingSite` two ways: on load (inside the
+  `sites` read, so the duplicate check sees the real list) and via
+  `storage.onChanged` (for a tab that was already open). Whoever reads it
+  calls `storage.local.remove` — otherwise a later visit to settings arrives
+  mysteriously prefilled.
+- **The menu item is created in `onInstalled` only.** Menu items outlive the
+  service worker; creating one on every wake throws a duplicate-id error.
+  `ensureContextMenu` clears first so an updated title or UI language lands.
+
+The item is scoped with `documentUrlPatterns: ["http://*/*", "https://*/*"]`,
+and `domainFromUrl` re-checks the protocol — pages that can't produce a rule
+never reach the settings page.
+
 ## Storage
 
 - `chrome.storage.sync` → `sites` (the rule list). Synced across devices.
@@ -93,7 +120,9 @@ avoid duplicates. Every sweep writes `{ time, trigger, removed }` to
   rate-limited. All writes in `options.js` must go through `saveSites()` —
   persist-then-commit: the in-memory list only updates after the write lands,
   and failures are shown to the user. Never call `storage.sync.set` directly.
-- `chrome.storage.local` → `lastSweep`. Device-local, 10 MB quota — not a concern.
+- `chrome.storage.local` → `lastSweep`, and `pendingSite` (the context-menu
+  hand-off, written by the worker and cleared by the settings page). Device-
+  local, 10 MB quota — not a concern.
 - `toSiteConfigs` accepts the legacy `string[]` shape and the current
   `object[]` shape. Keep this back-compat when touching storage.
 
@@ -119,8 +148,10 @@ falls back to it per-message, so a partial translation is safe.
   `@@bidi_dir` message. That covers text direction only — shipping an RTL
   language would also mean auditing the physical CSS (`margin-left`,
   `translateX`, `text-align: right`) in `options.css`.
-- `background.js` stays unlocalized on purpose — its only strings are console
-  logs for whoever inspects the worker.
+- `background.js` is unlocalized apart from one string: the context-menu title,
+  which it reads with `chrome.i18n.getMessage("contextMenuAddSite")`. Its other
+  strings are console logs for whoever inspects the worker. `test/i18n.test.js`
+  counts `background.js` as a reference site when looking for dead messages.
 
 **Second duplication invariant:** the English text still in `options.html` is
 a *fallback* for when the page runs outside the extension. It must stay

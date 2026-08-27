@@ -89,6 +89,24 @@ h1 {
   background: var(--surface);
 }
 
+/* Prefilled from the page context menu: the field is focused and selected
+   already, this just draws the eye to it. */
+@keyframes prefill-flash {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px var(--sage-tint);
+  }
+  50% {
+    box-shadow: 0 0 0 6px var(--sage-tint);
+  }
+}
+
+#site-input.prefilled {
+  border-color: var(--sage);
+  background: var(--surface);
+  animation: prefill-flash 0.5s ease-in-out 2;
+}
+
 .btn {
   border: none;
   border-radius: 9px;
@@ -378,5 +396,8 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   .site-row {
     transition: none;
+  }
+  #site-input.prefilled {
+    animation: none;
   }
 }

@@ -7,15 +7,18 @@ WHAT YOU GET
 • Whole domains or exact sections — example.com, or just example.com/section
 • Subdomains included — one rule covers news.example.com, shop.example.com, all of it
 • Keep the homepage, drop the rest — optional, per site
+• Add the site you're on with a right-click — no typing, no copying URLs
 • Clean up existing history in one click, not just future visits
 • Your list syncs across every Chrome you're signed into
 
 PRIVACY
 
-It makes zero network requests. There's no server, no analytics, no tracking, no ads, no account. It can't read the pages you visit. Free and open source — read every line yourself or just build it
+It makes zero network requests. There's no server, no analytics, no tracking, no ads, no account. It never reads page content — the only address it ever sees is the one you hand it yourself by right-clicking a page. Free and open source — read every line yourself or just build it
 
 PERMISSIONS
 
 History — to delete the entries matching your rules.
 Storage — to save your list.
-Alarms — to run a periodic background cleanup. Nothing else.
+Alarms — to run a periodic background cleanup.
+Context menus — to put "Auto-clean history for this site" in the right-click menu.
+Active tab — to read the address of the page you right-clicked, only at that moment. There is no standing access to any website. Nothing else.

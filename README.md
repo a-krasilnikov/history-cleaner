@@ -27,6 +27,11 @@ all normalized away.
 `example.com/` or `site.com/forum/`) while still deleting everything nested
 under it.
 
+**From the page itself:** right-click anywhere on a site and pick
+*"Auto-clean history for this site…"* — settings open with that domain already
+in the input. You still press **Add site**, so the keep-root toggle stays
+available and nothing is added by accident.
+
 **Filter:** the box next to the "Blocked sites" heading narrows the list to
 rules containing what you type — handy for checking whether a site is already
 on it. Escape clears it.
@@ -49,7 +54,9 @@ today; any other language falls back to English. Translations live in
 
 ## Permissions
 
-`history`, `storage`, `alarms` — nothing more. No network access.
+`history`, `storage`, `alarms`, plus `contextMenus` and `activeTab` for the
+right-click shortcut — `activeTab` reads only the page you right-clicked, only
+at that moment. No host permissions, no network access.
 
 ## Development
 

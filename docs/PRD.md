@@ -47,6 +47,29 @@ ones". When turned on:
 This lets the user keep a homepage or section index visible in history while
 hiding all the actual content they browsed.
 
+### Adding a rule from the page you're on
+
+Right-clicking anywhere on a web page offers **"Auto-clean history for this
+site…"**. Choosing it opens the settings page with that site's domain already
+typed into the input, focused and selected, and the field briefly highlighted.
+
+The user still presses "Add site" — the menu item is a shortcut for typing the
+domain, not a one-click rule. That keeps the "keep the exact page" toggle in
+play and gives an obvious way to back out (close the tab, or edit the text to
+scope the rule to a section before adding).
+
+The menu title deliberately says "this site" rather than naming the domain.
+Putting the name in the title would mean knowing the active tab's URL before
+the click, which needs a permission to read URLs of every tab — too much for a
+label. The extension only learns the URL at the moment the user picks the item.
+
+If the domain is already on the list, the settings page says so instead of
+inviting a duplicate. If the settings page happens to be open already, it is
+focused and prefilled rather than opened a second time.
+
+The item does not appear on `chrome://` pages, the Web Store, or local files —
+none of them can produce a rule.
+
 ### The rule list
 
 Added rules appear below the input. Each row shows:
@@ -197,7 +220,9 @@ Each rule is stored as:
 domain gets path `"/"`.
 
 Sweep history (last run time, trigger, count removed) is stored in
-`chrome.storage.local` — local to the device, not synced.
+`chrome.storage.local` — local to the device, not synced. The same local area
+carries the domain handed from the context menu to the settings page, which
+clears it as soon as it has read it.
 
 ## Language
 
@@ -215,13 +240,17 @@ three), and relative times ("5 minutes ago", "вчера") come from `Intl`.
 
 ## Permissions
 
-The extension requests exactly three permissions:
+The extension requests:
 
 - `history` — to read and delete history entries
 - `storage` — to save the user's rule list
 - `alarms` — to schedule the 30-minute background sweep
+- `contextMenus` — to add the "Auto-clean history for this site…" entry
+- `activeTab` — to read the address of the page the user right-clicked on,
+  and only that page, only at that moment
 
-No network access. No data ever leaves the user's machine.
+No host permissions, so no standing access to any site. No network access. No
+data ever leaves the user's machine.
 
 ## Edge cases to handle
 
@@ -238,3 +267,5 @@ No network access. No data ever leaves the user's machine.
 - Alarm persistence — the 30-minute alarm should be set up on install and on
   startup. Before creating it, check whether it already exists to avoid
   duplicates.
+- Context menu persistence — menu items outlive the service worker, so the
+  item is created on install/update only, clearing any previous copy first.
