@@ -1,0 +1,240 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "Otomatis menghapus kunjungan ke situs pilihan Anda dari riwayat browser."
+  },
+  "actionTitle": {
+    "message": "Setelan History Auto-Cleaner"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — Setelan"
+  },
+  "tagline": {
+    "message": "Situs dalam daftar ini tidak pernah tertinggal di riwayat Anda."
+  },
+
+  "siteInputLabel": {
+    "message": "Situs yang akan dihapus"
+  },
+  "siteInputPlaceholder": {
+    "message": "mis. example.com atau site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "Tambahkan"
+  },
+  "addSwitchText": {
+    "message": "Pertahankan halaman di atas, hapus hanya halaman di dalamnya"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ tetap, site.com/page hilang — atau batasi ke satu bagian: site.com/forum/ tetap, site.com/forum/post hilang"
+  },
+
+  "contextMenuAddSite": {
+    "message": "Bersihkan riwayat situs ini secara otomatis…"
+  },
+  "statusPrefilled": {
+    "message": "$SITE$ sudah diisi — klik “Tambahkan” untuk mengonfirmasi.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "Ekspor"
+  },
+  "importButton": {
+    "message": "Impor"
+  },
+  "cleanNowButton": {
+    "message": "Bersihkan sekarang"
+  },
+  "cleanNowTitle": {
+    "message": "Riwayat dibersihkan otomatis setiap 30 menit dan saat Chrome dimulai. Klik untuk membersihkan sekarang juga, tanpa menunggu."
+  },
+  "cleanNowBusy": {
+    "message": "Membersihkan…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "Situs yang diblokir"
+  },
+  "filterLabel": {
+    "message": "Filter daftar"
+  },
+  "filterPlaceholder": {
+    "message": "Filter daftar…"
+  },
+  "emptyState": {
+    "message": "Belum ada situs. Tambahkan domain (example.com) atau bagian tertentu (site.com/forum/) — halaman yang cocok, termasuk subdomain, akan dibersihkan otomatis."
+  },
+  "noMatches": {
+    "message": "Tidak ada situs yang cocok dengan \"$QUERY$\".",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ semua subdomain"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ semua subdomain, terbatas pada $PATH$",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "Hapus $SITE$ dari daftar",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "Pertahankan beranda"
+  },
+  "rowKeepThisPage": {
+    "message": "Pertahankan halaman ini"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ akan tetap ada — hanya halaman di dalamnya yang dihapus.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "Semua halaman di $SITE$ akan dihapus.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "Masukkan domain terlebih dahulu, mis. example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "\"$INPUT$\" sepertinya bukan domain yang valid.",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ sudah ada dalam daftar.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "$SITE$ ditambahkan.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "$SITE$ ditambahkan — halaman itu tetap ada, halaman di dalamnya dihapus.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "$SITE$ dihapus dari daftar.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "Tidak dapat menyimpan — penyimpanan sinkronisasi penuh (sekitar 100 aturan). Hapus satu aturan lalu coba lagi."
+  },
+  "saveErrorTooManyWrites": {
+    "message": "Tidak dapat menyimpan — terlalu banyak perubahan sekaligus. Tunggu sebentar lalu coba lagi."
+  },
+  "saveErrorGeneric": {
+    "message": "Tidak dapat menyimpan setelan: $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "kesalahan tidak diketahui"
+  },
+
+  "statusNothingToClean": {
+    "message": "Tambahkan situs terlebih dahulu — belum ada yang perlu dibersihkan."
+  },
+  "statusNothingFound": {
+    "message": "Tidak ditemukan item yang cocok di riwayat Anda."
+  },
+  "statusCleanedUp_other": {
+    "message": "$COUNT$ item yang cocok dihapus dari riwayat.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "Tambahkan situs sebelum mengekspor — daftar masih kosong."
+  },
+  "exportDone_other": {
+    "message": "$COUNT$ situs diekspor.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "File itu bukan JSON yang valid."
+  },
+  "importNoSites": {
+    "message": "Tidak ada situs valid yang ditemukan dalam file itu."
+  },
+  "importReadError": {
+    "message": "Tidak dapat membaca file itu."
+  },
+  "importDone": {
+    "message": "Impor selesai: $ADDED$ ditambahkan, $UPDATED$ diperbarui.",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "Berjalan otomatis setiap 30 menit dan saat Chrome dimulai. Belum pernah ada pembersihan."
+  },
+  "lastSweepLine": {
+    "message": "$LABEL$ terakhir: $TIME$ — $RESULT$.",
+    "placeholders": {
+      "label": { "content": "$1", "example": "Pembersihan otomatis" },
+      "time": { "content": "$2", "example": "5 menit yang lalu" },
+      "result": { "content": "$3", "example": "3 item dihapus" }
+    }
+  },
+  "justNow": {
+    "message": "baru saja"
+  },
+  "sweepLabelManual": {
+    "message": "Pembersihan manual"
+  },
+  "sweepLabelPeriodic": {
+    "message": "Pembersihan otomatis"
+  },
+  "sweepLabelStartup": {
+    "message": "Pembersihan saat Chrome dimulai"
+  },
+  "sweepLabelInstall": {
+    "message": "Pembersihan saat pemasangan"
+  },
+  "sweepLabelUnknown": {
+    "message": "Pembersihan"
+  },
+  "sweepRemovedNothing": {
+    "message": "tidak ada yang perlu dihapus"
+  },
+  "sweepRemoved_other": {
+    "message": "$COUNT$ item dihapus",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
