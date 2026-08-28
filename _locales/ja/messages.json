@@ -1,0 +1,240 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "選択したサイトへのアクセスを、ブラウザの履歴から自動的に削除します。"
+  },
+  "actionTitle": {
+    "message": "History Auto-Cleaner の設定"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — 設定"
+  },
+  "tagline": {
+    "message": "このリストにあるサイトは履歴に残りません。"
+  },
+
+  "siteInputLabel": {
+    "message": "削除するサイト"
+  },
+  "siteInputPlaceholder": {
+    "message": "例: example.com または site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "追加"
+  },
+  "addSwitchText": {
+    "message": "上のページ自体は残し、配下のページだけを削除する"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ は残り、site.com/page は削除されます。範囲の指定も可能です: site.com/forum/ は残り、site.com/forum/post は削除されます"
+  },
+
+  "contextMenuAddSite": {
+    "message": "このサイトの履歴を自動的にクリーンアップ…"
+  },
+  "statusPrefilled": {
+    "message": "$SITE$ を入力しました。「追加」をクリックして確定してください。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "エクスポート"
+  },
+  "importButton": {
+    "message": "インポート"
+  },
+  "cleanNowButton": {
+    "message": "今すぐクリーンアップ"
+  },
+  "cleanNowTitle": {
+    "message": "履歴は 30 分ごとと Chrome の起動時に自動でクリーンアップされます。待たずにすぐ実行するにはクリックしてください。"
+  },
+  "cleanNowBusy": {
+    "message": "クリーンアップ中…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "ブロック中のサイト"
+  },
+  "filterLabel": {
+    "message": "リストを絞り込む"
+  },
+  "filterPlaceholder": {
+    "message": "リストを絞り込む…"
+  },
+  "emptyState": {
+    "message": "サイトがまだありません。ドメイン (example.com) または特定のセクション (site.com/forum/) を追加すると、サブドメインを含む一致するページが自動的にクリーンアップされます。"
+  },
+  "noMatches": {
+    "message": "\"$QUERY$\" に一致するサイトはありません。",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ すべてのサブドメイン"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ すべてのサブドメイン ($PATH$ に限定)",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "$SITE$ をリストから削除",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "トップページを残す"
+  },
+  "rowKeepThisPage": {
+    "message": "このページ自体を残す"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ は残ります。配下のページのみ削除されます。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "$SITE$ 内のすべてのページが削除されます。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "まずドメインを入力してください。例: example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "\"$INPUT$\" は有効なドメインではないようです。",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ はすでにリストにあります。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "$SITE$ を追加しました。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "$SITE$ を追加しました。このページは残り、配下のページが削除されます。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "$SITE$ をリストから削除しました。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "保存できませんでした。同期ストレージがいっぱいです (ルール約 100 件)。ルールを 1 件削除してからもう一度お試しください。"
+  },
+  "saveErrorTooManyWrites": {
+    "message": "保存できませんでした。一度に変更しすぎです。少し待ってからもう一度お試しください。"
+  },
+  "saveErrorGeneric": {
+    "message": "設定を保存できませんでした: $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "不明なエラー"
+  },
+
+  "statusNothingToClean": {
+    "message": "まずサイトを追加してください。クリーンアップするものがまだありません。"
+  },
+  "statusNothingFound": {
+    "message": "履歴に一致する項目は見つかりませんでした。"
+  },
+  "statusCleanedUp_other": {
+    "message": "履歴から一致する項目を $COUNT$ 件削除しました。",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "エクスポートする前にサイトを追加してください。リストが空です。"
+  },
+  "exportDone_other": {
+    "message": "$COUNT$ 件のサイトをエクスポートしました。",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "このファイルは有効な JSON ではありません。"
+  },
+  "importNoSites": {
+    "message": "このファイルに有効なサイトは見つかりませんでした。"
+  },
+  "importReadError": {
+    "message": "このファイルを読み取れませんでした。"
+  },
+  "importDone": {
+    "message": "インポートが完了しました: 追加 $ADDED$ 件、更新 $UPDATED$ 件。",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "30 分ごとと Chrome の起動時に自動で実行されます。まだ一度も実行されていません。"
+  },
+  "lastSweepLine": {
+    "message": "前回の$LABEL$: $TIME$、$RESULT$。",
+    "placeholders": {
+      "label": { "content": "$1", "example": "自動クリーンアップ" },
+      "time": { "content": "$2", "example": "5 分前" },
+      "result": { "content": "$3", "example": "3 件削除" }
+    }
+  },
+  "justNow": {
+    "message": "たった今"
+  },
+  "sweepLabelManual": {
+    "message": "手動クリーンアップ"
+  },
+  "sweepLabelPeriodic": {
+    "message": "自動クリーンアップ"
+  },
+  "sweepLabelStartup": {
+    "message": "起動時のクリーンアップ"
+  },
+  "sweepLabelInstall": {
+    "message": "インストール時のクリーンアップ"
+  },
+  "sweepLabelUnknown": {
+    "message": "クリーンアップ"
+  },
+  "sweepRemovedNothing": {
+    "message": "削除するものはありませんでした"
+  },
+  "sweepRemoved_other": {
+    "message": "$COUNT$ 件削除",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
