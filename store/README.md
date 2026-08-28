@@ -7,7 +7,8 @@ They live in git so the listing has a history and a diff like everything else.
 
 `description.<locale>.txt` goes into Store listing → that language →
 Description, where `<locale>` is the same code as the matching `_locales/`
-folder.
+folder. The only pair worth double-checking in the dashboard is `pt_BR`
+(Português (Brasil)) against `pt_PT` (Português (Portugal)).
 
 ## What is localized where
 
