@@ -1,0 +1,258 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "Verwijdert bezoeken aan door jou gekozen sites automatisch uit je browsergeschiedenis."
+  },
+  "actionTitle": {
+    "message": "Instellingen van History Auto-Cleaner"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — Instellingen"
+  },
+  "tagline": {
+    "message": "Sites op deze lijst blijven nooit in je geschiedenis staan."
+  },
+
+  "siteInputLabel": {
+    "message": "Te verwijderen site"
+  },
+  "siteInputPlaceholder": {
+    "message": "bijv. example.com of site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "Toevoegen"
+  },
+  "addSwitchText": {
+    "message": "De pagina hierboven behouden en alleen diepere pagina's verwijderen"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ blijft, site.com/page verdwijnt — of beperk het tot een sectie: site.com/forum/ blijft, site.com/forum/post verdwijnt"
+  },
+
+  "contextMenuAddSite": {
+    "message": "Geschiedenis van deze site automatisch opschonen…"
+  },
+  "statusPrefilled": {
+    "message": "$SITE$ is ingevuld — klik op ‘Toevoegen’ om te bevestigen.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "Exporteren"
+  },
+  "importButton": {
+    "message": "Importeren"
+  },
+  "cleanNowButton": {
+    "message": "Nu opschonen"
+  },
+  "cleanNowTitle": {
+    "message": "De geschiedenis wordt elke 30 minuten en bij het starten van Chrome automatisch opgeschoond. Klik om meteen op te schonen, zonder te wachten."
+  },
+  "cleanNowBusy": {
+    "message": "Bezig met opschonen…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "Geblokkeerde sites"
+  },
+  "filterLabel": {
+    "message": "Lijst filteren"
+  },
+  "filterPlaceholder": {
+    "message": "Lijst filteren…"
+  },
+  "emptyState": {
+    "message": "Nog geen sites. Voeg een domein (example.com) of een specifieke sectie (site.com/forum/) toe — overeenkomende pagina's, subdomeinen inbegrepen, worden automatisch opgeschoond."
+  },
+  "noMatches": {
+    "message": "Geen enkele site komt overeen met \"$QUERY$\".",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ alle subdomeinen"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ alle subdomeinen, beperkt tot $PATH$",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "$SITE$ uit de lijst verwijderen",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "Homepage behouden"
+  },
+  "rowKeepThisPage": {
+    "message": "Deze pagina zelf behouden"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ blijft staan — alleen diepere pagina's worden verwijderd.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "Alle pagina's onder $SITE$ worden verwijderd.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "Voer eerst een domein in, bijv. example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "\"$INPUT$\" lijkt geen geldig domein.",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ staat al op de lijst.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "$SITE$ toegevoegd.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "$SITE$ toegevoegd — die pagina blijft, diepere worden verwijderd.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "$SITE$ uit de lijst verwijderd.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "Opslaan mislukt — de synchronisatieopslag is vol (ongeveer 100 regels). Verwijder een regel en probeer het opnieuw."
+  },
+  "saveErrorTooManyWrites": {
+    "message": "Opslaan mislukt — te veel wijzigingen tegelijk. Wacht even en probeer het opnieuw."
+  },
+  "saveErrorGeneric": {
+    "message": "Instellingen konden niet worden opgeslagen: $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "onbekende fout"
+  },
+
+  "statusNothingToClean": {
+    "message": "Voeg eerst een site toe — er is nog niets op te schonen."
+  },
+  "statusNothingFound": {
+    "message": "Geen overeenkomende items in je geschiedenis gevonden."
+  },
+  "statusCleanedUp_one": {
+    "message": "$COUNT$ overeenkomend item uit de geschiedenis verwijderd.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "statusCleanedUp_other": {
+    "message": "$COUNT$ overeenkomende items uit de geschiedenis verwijderd.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "Voeg een site toe voordat je exporteert — de lijst is leeg."
+  },
+  "exportDone_one": {
+    "message": "$COUNT$ site geëxporteerd.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "exportDone_other": {
+    "message": "$COUNT$ sites geëxporteerd.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "Dat bestand is geen geldige JSON."
+  },
+  "importNoSites": {
+    "message": "Geen geldige sites in dat bestand gevonden."
+  },
+  "importReadError": {
+    "message": "Dat bestand kon niet worden gelezen."
+  },
+  "importDone": {
+    "message": "Import voltooid: $ADDED$ toegevoegd, $UPDATED$ bijgewerkt.",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "Draait automatisch elke 30 minuten en bij het starten van Chrome. Er is nog niet opgeschoond."
+  },
+  "lastSweepLine": {
+    "message": "Laatste $LABEL$: $TIME$ — $RESULT$.",
+    "placeholders": {
+      "label": { "content": "$1", "example": "automatische opschoning" },
+      "time": { "content": "$2", "example": "5 minuten geleden" },
+      "result": { "content": "$3", "example": "3 items verwijderd" }
+    }
+  },
+  "justNow": {
+    "message": "zojuist"
+  },
+  "sweepLabelManual": {
+    "message": "handmatige opschoning"
+  },
+  "sweepLabelPeriodic": {
+    "message": "automatische opschoning"
+  },
+  "sweepLabelStartup": {
+    "message": "opschoning bij opstarten"
+  },
+  "sweepLabelInstall": {
+    "message": "opschoning bij installatie"
+  },
+  "sweepLabelUnknown": {
+    "message": "opschoning"
+  },
+  "sweepRemovedNothing": {
+    "message": "niets te verwijderen"
+  },
+  "sweepRemoved_one": {
+    "message": "$COUNT$ item verwijderd",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "sweepRemoved_other": {
+    "message": "$COUNT$ items verwijderd",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
