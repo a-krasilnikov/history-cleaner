@@ -48,10 +48,9 @@ it never wipes existing rules.
 
 ## Languages
 
-The settings page follows your browser's language. English, Russian, Brazilian
-Portuguese and Spanish ship today; any other language falls back to English.
-Translations live in `_locales/<lang>/messages.json` — adding one is a folder,
-not a code change.
+The settings page follows your browser's language. Every folder in `_locales/`
+is a language that ships; anything else falls back to English. Adding one is a
+folder, not a code change — see [docs/i18n.md](docs/i18n.md).
 
 ## Permissions
 

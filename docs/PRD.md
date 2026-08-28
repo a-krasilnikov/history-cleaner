@@ -228,17 +228,17 @@ clears it as soon as it has read it.
 
 The UI follows the browser's own language — there is no language picker on the
 settings page, because the browser already knows. English is the default and
-the fallback for any language not translated yet; Russian, Brazilian
-Portuguese and Spanish ship with it.
+the fallback for any language not translated yet, per message: a half-finished
+translation shows English where it stops rather than breaking.
 
 Copy lives in `_locales/<lang>/messages.json`, which also supplies the
 extension name and description shown on `chrome://extensions` and in the Web
-Store. Adding a language is adding one folder; no code changes.
+Store. Which languages ship is whatever that folder contains; adding one is
+adding a folder, no code changes (`docs/i18n.md`).
 
 Two things are left to the browser rather than to translators: counts are
-pluralized by the language's own rules (English gets by with two forms,
-Russian needs four), and relative times ("5 minutes ago", "há 5 minutos",
-"hace 5 minutos", "вчера") come from `Intl`.
+pluralized by the language's own rules, and relative times ("5 minutes ago",
+"вчера") come from `Intl`.
 
 ## Permissions
 
