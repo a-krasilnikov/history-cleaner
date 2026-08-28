@@ -15,7 +15,7 @@ dependencies, no network access. Load unpacked to run (see below).
 | `manifest.json` | MV3 manifest. Permissions: `history`, `storage`, `alarms`, `contextMenus`, `activeTab`. No host permissions — keep it that way (`activeTab` is the deliberate alternative: access to one tab, granted only by the user's context-menu click). `minimum_chrome_version: 111` (Mar 2023) — at 111+ every chrome.* API used here supports promises (`chrome.alarms` was the last, at 111), so promise-form/`await` calls are safe throughout; no per-API version checks needed. |
 | `background.js` | Service worker. The cleaning engine: live listener + sweeps + matching logic. |
 | `options.html/.css/.js` | The only UI. Opens on toolbar-icon click. Vanilla JS, no framework. |
-| `_locales/<lang>/messages.json` | All UI copy, Chrome i18n format. `en` is the `default_locale`; `ru` ships too. |
+| `_locales/<lang>/messages.json` | All UI copy, Chrome i18n format. `en` is the `default_locale`; `ru` and `pt_BR` ship too. |
 | `icons/` | 16/48/128 px action + extension icons. |
 | `docs/PRD.md` | Product spec — source of truth for intended behavior, matching examples, edge cases. |
 | `store/` | Web Store listing description, one file per language. Dashboard-only copy; never packaged. |
@@ -141,7 +141,9 @@ falls back to it per-message, so a partial translation is safe.
 - **options.js**: `t(key, ...subs)` for a string, `tn(key, count)` for
   anything counted. `tn` resolves `<key>_one` / `_few` / `_many` / `_other`
   through `Intl.PluralRules`, so every locale needs each category its
-  language actually has — English two, Russian three.
+  language actually has — English two, Brazilian Portuguese three, Russian
+  four. Ask `Intl`, don't guess: the count includes categories a human
+  wouldn't think of (`other` for fractions, `many` for millions).
 - Relative times come from `Intl.RelativeTimeFormat`, not from messages; only
   "just now" (`justNow`) is a string.
 - `localizeDocument` also sets `<html dir>` from Chrome's predefined
@@ -162,6 +164,13 @@ To add a language, copy `_locales/en/messages.json` into `_locales/<code>/`,
 translate the `message` values (leave the keys, the `$PLACEHOLDERS$` and the
 `description` fields alone), and cover the plural categories that language
 needs. No code change.
+
+Region-qualified folders use Chrome's underscore form (`pt_BR`, never
+`pt-BR`). That string is *not* a valid BCP-47 tag: `new Intl.PluralRules("pt_BR")`
+throws a `RangeError`, so anything constructing an `Intl` object from a folder
+name has to convert it first (`bcp47()` in `test/i18n.test.js`). At runtime the
+problem doesn't arise — `chrome.i18n.getUILanguage()` already returns the
+hyphenated tag.
 
 ## Run / test
 

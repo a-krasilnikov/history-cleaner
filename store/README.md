@@ -9,6 +9,7 @@ They live in git so the listing has a history and a diff like everything else.
 |------|-----------------|
 | `description.en.txt` | Store listing → English → Description |
 | `description.ru.txt` | Store listing → Русский → Description |
+| `description.pt_BR.txt` | Store listing → Português (Brasil) → Description |
 
 ## What is localized where
 
