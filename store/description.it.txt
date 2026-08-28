@@ -1,0 +1,24 @@
+Indica i siti che non vuoi nella cronologia del browser. Vengono eliminati nel momento stesso in cui li visiti — automaticamente, per sempre. Tutto il resto rimane intatto, così la cronologia continua a funzionare come al solito.
+
+Nessuna modalità da ricordarsi di attivare. Nessun rituale di pulizia. Aggiungi un sito una volta e smetti di pensarci.
+
+COSA FA
+
+• Domini interi o sezioni precise — example.com, oppure solo example.com/section
+• Sottodomini compresi — una sola regola copre news.example.com, shop.example.com e tutti gli altri
+• Mantieni la home page ed elimina il resto — a scelta, sito per sito
+• Aggiungi il sito su cui ti trovi con un clic destro — niente da digitare, nessun URL da copiare
+• Pulisci con un clic la cronologia già accumulata, non solo le visite future
+• Il tuo elenco si sincronizza su tutti i Chrome in cui hai eseguito l'accesso
+
+PRIVACY
+
+L'estensione non effettua nemmeno una richiesta di rete. Nessun server, nessuna analisi, nessun tracciamento, nessuna pubblicità, nessun account. Non legge mai il contenuto delle pagine: l'unico indirizzo che vede è quello che le consegni tu stesso con un clic destro su una pagina. Gratuita e open source — leggine ogni riga o compilala da te.
+
+AUTORIZZAZIONI
+
+Cronologia (history) — per eliminare gli elementi che corrispondono alle tue regole.
+Archiviazione (storage) — per salvare il tuo elenco.
+Allarmi (alarms) — per eseguire la pulizia periodica in background.
+Menu contestuali (contextMenus) — per inserire "Pulisci automaticamente la cronologia di questo sito" nel menu del clic destro.
+Scheda attiva (activeTab) — per leggere l'indirizzo della pagina su cui hai fatto clic destro, e solo in quel momento. Non c'è alcun accesso permanente ad alcun sito. Nient'altro.
