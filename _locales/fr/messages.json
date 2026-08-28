@@ -1,0 +1,276 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "Supprime automatiquement de l'historique du navigateur les visites sur les sites que vous choisissez."
+  },
+  "actionTitle": {
+    "message": "Paramètres de History Auto-Cleaner"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — Paramètres"
+  },
+  "tagline": {
+    "message": "Les sites de cette liste ne restent jamais dans votre historique."
+  },
+
+  "siteInputLabel": {
+    "message": "Site à supprimer"
+  },
+  "siteInputPlaceholder": {
+    "message": "ex. : example.com ou site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "Ajouter"
+  },
+  "addSwitchText": {
+    "message": "Conserver la page indiquée ci-dessus et ne supprimer que les pages internes"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ reste, site.com/page disparaît — ou limitez à une section : site.com/forum/ reste, site.com/forum/post disparaît"
+  },
+
+  "contextMenuAddSite": {
+    "message": "Nettoyer automatiquement l'historique de ce site…"
+  },
+  "statusPrefilled": {
+    "message": "$SITE$ est saisi — cliquez sur « Ajouter » pour confirmer.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "Exporter"
+  },
+  "importButton": {
+    "message": "Importer"
+  },
+  "cleanNowButton": {
+    "message": "Nettoyer maintenant"
+  },
+  "cleanNowTitle": {
+    "message": "L'historique est nettoyé automatiquement toutes les 30 minutes et au démarrage de Chrome. Cliquez pour le nettoyer tout de suite, sans attendre."
+  },
+  "cleanNowBusy": {
+    "message": "Nettoyage…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "Sites bloqués"
+  },
+  "filterLabel": {
+    "message": "Filtrer la liste"
+  },
+  "filterPlaceholder": {
+    "message": "Filtrer la liste…"
+  },
+  "emptyState": {
+    "message": "Aucun site pour l'instant. Ajoutez un domaine (example.com) ou une section précise (site.com/forum/) — les pages correspondantes, sous-domaines compris, seront nettoyées automatiquement."
+  },
+  "noMatches": {
+    "message": "Aucun site ne correspond à \"$QUERY$\".",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ tous les sous-domaines"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ tous les sous-domaines, limité à $PATH$",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "Retirer $SITE$ de la liste",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "Conserver la page d'accueil"
+  },
+  "rowKeepThisPage": {
+    "message": "Conserver cette page elle-même"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ sera conservé — seules les pages internes sont supprimées.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "Toutes les pages de $SITE$ seront supprimées.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "Saisissez d'abord un domaine, ex. : example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "\"$INPUT$\" ne ressemble pas à un domaine valide.",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ est déjà dans la liste.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "$SITE$ ajouté.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "$SITE$ ajouté — cette page est conservée, les pages internes sont supprimées.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "$SITE$ retiré de la liste.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "Enregistrement impossible — le stockage synchronisé est plein (environ 100 règles). Retirez une règle et réessayez."
+  },
+  "saveErrorTooManyWrites": {
+    "message": "Enregistrement impossible — trop de modifications à la fois. Patientez un instant et réessayez."
+  },
+  "saveErrorGeneric": {
+    "message": "Impossible d'enregistrer les paramètres : $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "erreur inconnue"
+  },
+
+  "statusNothingToClean": {
+    "message": "Ajoutez d'abord un site — il n'y a encore rien à nettoyer."
+  },
+  "statusNothingFound": {
+    "message": "Aucun élément correspondant dans votre historique."
+  },
+  "statusCleanedUp_one": {
+    "message": "$COUNT$ élément correspondant supprimé de l'historique.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "statusCleanedUp_many": {
+    "message": "$COUNT$ d'éléments correspondants supprimés de l'historique.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1 000 000" }
+    }
+  },
+  "statusCleanedUp_other": {
+    "message": "$COUNT$ éléments correspondants supprimés de l'historique.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "Ajoutez un site avant d'exporter — la liste est vide."
+  },
+  "exportDone_one": {
+    "message": "$COUNT$ site exporté.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "exportDone_many": {
+    "message": "$COUNT$ de sites exportés.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1 000 000" }
+    }
+  },
+  "exportDone_other": {
+    "message": "$COUNT$ sites exportés.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "Ce fichier n'est pas un JSON valide."
+  },
+  "importNoSites": {
+    "message": "Aucun site valide trouvé dans ce fichier."
+  },
+  "importReadError": {
+    "message": "Impossible de lire ce fichier."
+  },
+  "importDone": {
+    "message": "Importation terminée : $ADDED$ ajoutés, $UPDATED$ mis à jour.",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "S'exécute automatiquement toutes les 30 minutes et au démarrage de Chrome. Aucun nettoyage n'a encore eu lieu."
+  },
+  "lastSweepLine": {
+    "message": "Dernier $LABEL$ : $TIME$ — $RESULT$.",
+    "placeholders": {
+      "label": { "content": "$1", "example": "nettoyage automatique" },
+      "time": { "content": "$2", "example": "il y a 5 minutes" },
+      "result": { "content": "$3", "example": "3 éléments supprimés" }
+    }
+  },
+  "justNow": {
+    "message": "à l'instant"
+  },
+  "sweepLabelManual": {
+    "message": "nettoyage manuel"
+  },
+  "sweepLabelPeriodic": {
+    "message": "nettoyage automatique"
+  },
+  "sweepLabelStartup": {
+    "message": "nettoyage au démarrage"
+  },
+  "sweepLabelInstall": {
+    "message": "nettoyage à l'installation"
+  },
+  "sweepLabelUnknown": {
+    "message": "nettoyage"
+  },
+  "sweepRemovedNothing": {
+    "message": "rien à supprimer"
+  },
+  "sweepRemoved_one": {
+    "message": "$COUNT$ élément supprimé",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "sweepRemoved_many": {
+    "message": "$COUNT$ d'éléments supprimés",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1 000 000" }
+    }
+  },
+  "sweepRemoved_other": {
+    "message": "$COUNT$ éléments supprimés",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
