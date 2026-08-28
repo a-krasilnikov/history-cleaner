@@ -1,0 +1,258 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "Seçtiğiniz sitelere yapılan ziyaretleri tarayıcı geçmişinizden otomatik olarak siler."
+  },
+  "actionTitle": {
+    "message": "History Auto-Cleaner ayarları"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — Ayarlar"
+  },
+  "tagline": {
+    "message": "Bu listedeki siteler geçmişinizde asla kalmaz."
+  },
+
+  "siteInputLabel": {
+    "message": "Kaldırılacak site"
+  },
+  "siteInputPlaceholder": {
+    "message": "örn. example.com veya site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "Ekle"
+  },
+  "addSwitchText": {
+    "message": "Yukarıdaki sayfanın kendisini koru, yalnızca alt sayfaları sil"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ kalır, site.com/page gider — ya da bir bölümle sınırlayın: site.com/forum/ kalır, site.com/forum/post gider"
+  },
+
+  "contextMenuAddSite": {
+    "message": "Bu sitenin geçmişini otomatik temizle…"
+  },
+  "statusPrefilled": {
+    "message": "$SITE$ yazıldı — onaylamak için “Ekle” düğmesine tıklayın.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "Dışa aktar"
+  },
+  "importButton": {
+    "message": "İçe aktar"
+  },
+  "cleanNowButton": {
+    "message": "Şimdi temizle"
+  },
+  "cleanNowTitle": {
+    "message": "Geçmiş her 30 dakikada bir ve Chrome başlatıldığında otomatik olarak temizlenir. Beklemeden hemen temizlemek için tıklayın."
+  },
+  "cleanNowBusy": {
+    "message": "Temizleniyor…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "Engellenen siteler"
+  },
+  "filterLabel": {
+    "message": "Listeyi filtrele"
+  },
+  "filterPlaceholder": {
+    "message": "Listeyi filtrele…"
+  },
+  "emptyState": {
+    "message": "Henüz site yok. Bir alan adı (example.com) veya belirli bir bölüm (site.com/forum/) ekleyin — alt alan adları dahil eşleşen sayfalar otomatik olarak temizlenir."
+  },
+  "noMatches": {
+    "message": "\"$QUERY$\" ile eşleşen site yok.",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ tüm alt alan adları"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ tüm alt alan adları, $PATH$ ile sınırlı",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "$SITE$ sitesini listeden kaldır",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "Ana sayfayı koru"
+  },
+  "rowKeepThisPage": {
+    "message": "Bu sayfanın kendisini koru"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ kalacak — yalnızca alt sayfalar kaldırılır.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "$SITE$ altındaki tüm sayfalar kaldırılacak.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "Önce bir alan adı yazın, örn. example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "\"$INPUT$\" geçerli bir alan adına benzemiyor.",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ zaten listede.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "$SITE$ eklendi.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "$SITE$ eklendi — bu sayfa kalır, alt sayfalar kaldırılır.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "$SITE$ listeden kaldırıldı.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "Kaydedilemedi — eşitleme depolaması dolu (yaklaşık 100 kural). Bir kuralı kaldırıp yeniden deneyin."
+  },
+  "saveErrorTooManyWrites": {
+    "message": "Kaydedilemedi — aynı anda çok fazla değişiklik yapıldı. Biraz bekleyip yeniden deneyin."
+  },
+  "saveErrorGeneric": {
+    "message": "Ayarlar kaydedilemedi: $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "bilinmeyen hata"
+  },
+
+  "statusNothingToClean": {
+    "message": "Önce bir site ekleyin — temizlenecek bir şey yok."
+  },
+  "statusNothingFound": {
+    "message": "Geçmişinizde eşleşen öğe bulunamadı."
+  },
+  "statusCleanedUp_one": {
+    "message": "Geçmişten $COUNT$ eşleşen öğe silindi.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "statusCleanedUp_other": {
+    "message": "Geçmişten $COUNT$ eşleşen öğe silindi.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "Dışa aktarmadan önce bir site ekleyin — liste boş."
+  },
+  "exportDone_one": {
+    "message": "$COUNT$ site dışa aktarıldı.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "exportDone_other": {
+    "message": "$COUNT$ site dışa aktarıldı.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "Bu dosya geçerli bir JSON değil."
+  },
+  "importNoSites": {
+    "message": "Bu dosyada geçerli site bulunamadı."
+  },
+  "importReadError": {
+    "message": "Bu dosya okunamadı."
+  },
+  "importDone": {
+    "message": "İçe aktarma tamamlandı: $ADDED$ eklendi, $UPDATED$ güncellendi.",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "Her 30 dakikada bir ve Chrome başlatıldığında otomatik çalışır. Henüz hiç temizlik yapılmadı."
+  },
+  "lastSweepLine": {
+    "message": "Son $LABEL$: $TIME$ — $RESULT$.",
+    "placeholders": {
+      "label": { "content": "$1", "example": "otomatik temizlik" },
+      "time": { "content": "$2", "example": "5 dakika önce" },
+      "result": { "content": "$3", "example": "3 öğe kaldırıldı" }
+    }
+  },
+  "justNow": {
+    "message": "az önce"
+  },
+  "sweepLabelManual": {
+    "message": "elle temizlik"
+  },
+  "sweepLabelPeriodic": {
+    "message": "otomatik temizlik"
+  },
+  "sweepLabelStartup": {
+    "message": "başlangıç temizliği"
+  },
+  "sweepLabelInstall": {
+    "message": "kurulum temizliği"
+  },
+  "sweepLabelUnknown": {
+    "message": "temizlik"
+  },
+  "sweepRemovedNothing": {
+    "message": "kaldırılacak bir şey yoktu"
+  },
+  "sweepRemoved_one": {
+    "message": "$COUNT$ öğe kaldırıldı",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "sweepRemoved_other": {
+    "message": "$COUNT$ öğe kaldırıldı",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
