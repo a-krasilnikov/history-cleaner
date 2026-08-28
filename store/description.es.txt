@@ -1,0 +1,24 @@
+Elige los sitios que no quieres en tu historial de navegación. Se eliminan en el momento en que los visitas — automáticamente y para siempre. Todo lo demás queda intacto, así que tu historial sigue funcionando con normalidad.
+
+Ningún modo que tengas que acordarte de activar. Ningún ritual de limpieza. Añades un sitio una vez y dejas de pensar en ello.
+
+QUÉ HACE
+
+• Dominios enteros o secciones concretas — example.com, o solo example.com/section
+• Subdominios incluidos — una regla cubre news.example.com, shop.example.com y todo lo demás
+• Mantener la página de inicio y borrar el resto — opcional, sitio por sitio
+• Añadir el sitio en el que estás desde el menú del botón derecho — sin escribir, sin copiar URLs
+• Limpiar de un clic el historial que ya tienes, no solo las visitas futuras
+• Tu lista se sincroniza en todos los Chrome en los que has iniciado sesión
+
+PRIVACIDAD
+
+La extensión no hace ninguna petición de red. Sin servidor, sin analíticas, sin rastreo, sin anuncios, sin cuenta. Nunca lee el contenido de las páginas: la única dirección que ve es la que tú mismo le pasas al hacer clic derecho en una página. Gratuita y de código abierto — lee cada línea tú mismo o compílala por tu cuenta.
+
+PERMISOS
+
+Historial (history) — para eliminar los elementos que coinciden con tus reglas.
+Almacenamiento (storage) — para guardar tu lista.
+Alarmas (alarms) — para ejecutar una limpieza periódica en segundo plano.
+Menús contextuales (contextMenus) — para poner "Limpieza automática del historial de este sitio" en el menú del botón derecho.
+Pestaña activa (activeTab) — para leer la dirección de la página en la que has hecho clic derecho, y solo en ese momento. No hay acceso permanente a ningún sitio. Nada más.
