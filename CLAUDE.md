@@ -15,7 +15,7 @@ dependencies, no network access. Load unpacked to run (see below).
 | `manifest.json` | MV3 manifest. Permissions: `history`, `storage`, `alarms`, `contextMenus`, `activeTab`. No host permissions — keep it that way (`activeTab` is the deliberate alternative: access to one tab, granted only by the user's context-menu click). `minimum_chrome_version: 111` (Mar 2023) — at 111+ every chrome.* API used here supports promises (`chrome.alarms` was the last, at 111), so promise-form/`await` calls are safe throughout; no per-API version checks needed. |
 | `background.js` | Service worker. The cleaning engine: live listener + sweeps + matching logic. |
 | `options.html/.css/.js` | The only UI. Opens on toolbar-icon click. Vanilla JS, no framework. |
-| `_locales/<lang>/messages.json` | All UI copy, Chrome i18n format. `en` is the `default_locale`; `ru` and `pt_BR` ship too. |
+| `_locales/<lang>/messages.json` | All UI copy, Chrome i18n format. `en` is the `default_locale`; `ru`, `pt_BR` and `es` ship too. |
 | `icons/` | 16/48/128 px action + extension icons. |
 | `docs/PRD.md` | Product spec — source of truth for intended behavior, matching examples, edge cases. |
 | `store/` | Web Store listing description, one file per language. Dashboard-only copy; never packaged. |
@@ -141,9 +141,12 @@ falls back to it per-message, so a partial translation is safe.
 - **options.js**: `t(key, ...subs)` for a string, `tn(key, count)` for
   anything counted. `tn` resolves `<key>_one` / `_few` / `_many` / `_other`
   through `Intl.PluralRules`, so every locale needs each category its
-  language actually has — English two, Brazilian Portuguese three, Russian
-  four. Ask `Intl`, don't guess: the count includes categories a human
-  wouldn't think of (`other` for fractions, `many` for millions).
+  language actually has — English two, Spanish and Brazilian Portuguese
+  three, Russian four. Ask `Intl`, don't guess: the count includes categories
+  a human wouldn't think of (`other` for fractions, `many` for millions).
+  `many` is not a spare copy of `other`: in both Spanish and Portuguese it is
+  the millions form, where the counted noun takes "de" — "1.000.000 **de**
+  elementos".
 - Relative times come from `Intl.RelativeTimeFormat`, not from messages; only
   "just now" (`justNow`) is a string.
 - `localizeDocument` also sets `<html dir>` from Chrome's predefined
@@ -171,6 +174,18 @@ throws a `RangeError`, so anything constructing an `Intl` object from a folder
 name has to convert it first (`bcp47()` in `test/i18n.test.js`). At runtime the
 problem doesn't arise — `chrome.i18n.getUILanguage()` already returns the
 hyphenated tag.
+
+`<code>` has to be a row of Chrome's own locale table (chrome.i18n reference →
+"Locales"); a folder Chrome doesn't recognize is skipped without an error,
+leaving the UI in English. That table is why the two languages here are coded
+the way they are. Portuguese has **no plain `pt`** — only `pt_BR` and
+`pt_PT`, and neither falls back to the other, so `pt_PT` users read English
+until someone adds that folder. (A bare `pt` folder does reach them, through
+the region-stripping step of the lookup, but the Web Store ignores it: the
+listing then can't be translated and doesn't show up as Portuguese.) Spanish
+is the opposite — `es` is a real row and `es_419` falls back into it, so the
+single folder covers every Spanish-speaking user, which is why it is written
+in neutral Spanish rather than peninsular.
 
 ## Run / test
 

@@ -1,0 +1,276 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "Elimina automáticamente de tu historial de navegación las visitas a los sitios que elijas."
+  },
+  "actionTitle": {
+    "message": "Configuración de History Auto-Cleaner"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — Configuración"
+  },
+  "tagline": {
+    "message": "Los sitios de esta lista nunca se quedan en tu historial."
+  },
+
+  "siteInputLabel": {
+    "message": "Sitio que quieres eliminar"
+  },
+  "siteInputPlaceholder": {
+    "message": "p. ej., example.com o site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "Añadir"
+  },
+  "addSwitchText": {
+    "message": "Mantener la página indicada arriba y eliminar solo las páginas internas"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ se queda, site.com/page se va — o acótalo a una sección: site.com/forum/ se queda, site.com/forum/post se va"
+  },
+
+  "contextMenuAddSite": {
+    "message": "Limpieza automática del historial de este sitio…"
+  },
+  "statusPrefilled": {
+    "message": "$SITE$ ya está escrito — haz clic en «Añadir» para confirmar.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "Exportar"
+  },
+  "importButton": {
+    "message": "Importar"
+  },
+  "cleanNowButton": {
+    "message": "Limpiar ahora"
+  },
+  "cleanNowTitle": {
+    "message": "El historial se limpia automáticamente cada 30 minutos y al iniciar Chrome. Haz clic para limpiarlo ahora mismo, sin esperar."
+  },
+  "cleanNowBusy": {
+    "message": "Limpiando…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "Sitios bloqueados"
+  },
+  "filterLabel": {
+    "message": "Filtrar la lista"
+  },
+  "filterPlaceholder": {
+    "message": "Filtrar lista…"
+  },
+  "emptyState": {
+    "message": "Aún no hay sitios. Añade un dominio (example.com) o una sección concreta (site.com/forum/) — las páginas que coincidan, incluidas las de los subdominios, se eliminarán automáticamente."
+  },
+  "noMatches": {
+    "message": "Ningún sitio coincide con \"$QUERY$\".",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ todos los subdominios"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ todos los subdominios, limitado a $PATH$",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "Quitar $SITE$ de la lista",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "Mantener la página de inicio"
+  },
+  "rowKeepThisPage": {
+    "message": "Mantener esta misma página"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ se mantendrá — solo se eliminan las páginas internas.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "Se eliminarán todas las páginas de $SITE$.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "Escribe primero un dominio, p. ej. example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "\"$INPUT$\" no parece un dominio válido.",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ ya está en la lista.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "$SITE$ añadido.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "$SITE$ añadido — esa página se mantiene y solo se eliminan las internas.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "$SITE$ quitado de la lista.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "No se pudo guardar — el almacenamiento de sincronización está lleno (unas 100 reglas). Quita una regla e inténtalo de nuevo."
+  },
+  "saveErrorTooManyWrites": {
+    "message": "No se pudo guardar — demasiados cambios a la vez. Espera un momento e inténtalo de nuevo."
+  },
+  "saveErrorGeneric": {
+    "message": "No se pudo guardar la configuración: $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "error desconocido"
+  },
+
+  "statusNothingToClean": {
+    "message": "Añade primero un sitio — todavía no hay nada que limpiar."
+  },
+  "statusNothingFound": {
+    "message": "No se encontró ningún elemento coincidente en tu historial."
+  },
+  "statusCleanedUp_one": {
+    "message": "$COUNT$ elemento coincidente eliminado del historial.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "statusCleanedUp_many": {
+    "message": "$COUNT$ de elementos coincidentes eliminados del historial.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1.000.000" }
+    }
+  },
+  "statusCleanedUp_other": {
+    "message": "$COUNT$ elementos coincidentes eliminados del historial.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "Añade un sitio antes de exportar — la lista está vacía."
+  },
+  "exportDone_one": {
+    "message": "$COUNT$ sitio exportado.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "exportDone_many": {
+    "message": "$COUNT$ de sitios exportados.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1.000.000" }
+    }
+  },
+  "exportDone_other": {
+    "message": "$COUNT$ sitios exportados.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "Ese archivo no es un JSON válido."
+  },
+  "importNoSites": {
+    "message": "No se encontró ningún sitio válido en ese archivo."
+  },
+  "importReadError": {
+    "message": "No se pudo leer ese archivo."
+  },
+  "importDone": {
+    "message": "Importación completada: $ADDED$ añadidos, $UPDATED$ actualizados.",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "La limpieza se ejecuta automáticamente cada 30 minutos y al iniciar Chrome. Todavía no se ha hecho ninguna."
+  },
+  "lastSweepLine": {
+    "message": "Última $LABEL$: $TIME$ — $RESULT$.",
+    "placeholders": {
+      "label": { "content": "$1", "example": "limpieza automática" },
+      "time": { "content": "$2", "example": "hace 5 minutos" },
+      "result": { "content": "$3", "example": "3 elementos eliminados" }
+    }
+  },
+  "justNow": {
+    "message": "ahora mismo"
+  },
+  "sweepLabelManual": {
+    "message": "limpieza manual"
+  },
+  "sweepLabelPeriodic": {
+    "message": "limpieza automática"
+  },
+  "sweepLabelStartup": {
+    "message": "limpieza al iniciar"
+  },
+  "sweepLabelInstall": {
+    "message": "limpieza al instalar"
+  },
+  "sweepLabelUnknown": {
+    "message": "limpieza"
+  },
+  "sweepRemovedNothing": {
+    "message": "no había nada que eliminar"
+  },
+  "sweepRemoved_one": {
+    "message": "$COUNT$ elemento eliminado",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "sweepRemoved_many": {
+    "message": "$COUNT$ de elementos eliminados",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1.000.000" }
+    }
+  },
+  "sweepRemoved_other": {
+    "message": "$COUNT$ elementos eliminados",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
