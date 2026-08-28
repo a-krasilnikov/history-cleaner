@@ -5,12 +5,9 @@ language. These are dashboard-only fields — nothing here ships in the
 extension, and `npm run pack` deliberately leaves this folder out of the zip.
 They live in git so the listing has a history and a diff like everything else.
 
-| File | Dashboard field |
-|------|-----------------|
-| `description.en.txt` | Store listing → English → Description |
-| `description.ru.txt` | Store listing → Русский → Description |
-| `description.pt_BR.txt` | Store listing → Português (Brasil) → Description |
-| `description.es.txt` | Store listing → Español → Description |
+`description.<locale>.txt` goes into Store listing → that language →
+Description, where `<locale>` is the same code as the matching `_locales/`
+folder.
 
 ## What is localized where
 
@@ -25,7 +22,7 @@ They live in git so the listing has a history and a diff like everything else.
 ## Editing
 
 Plain text — the store renders no Markdown, but it does keep line breaks, so
-the blank lines and the `•` bullets survive a copy-paste. Keep the two
-languages structurally in step: same sections, same bullet order. A locale
-with no listing of its own falls back to the default language, so a partial
-translation is safe.
+the blank lines and the `•` bullets survive a copy-paste. Keep the languages
+structurally in step: same sections, same bullet order, so a diff between any
+two of them is about wording only. A locale with no listing of its own falls
+back to the default language, so a missing translation is safe.
