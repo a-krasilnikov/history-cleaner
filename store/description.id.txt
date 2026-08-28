@@ -1,0 +1,24 @@
+Tentukan situs yang tidak Anda inginkan ada di riwayat browser. Situs itu dihapus tepat saat Anda mengunjunginya — otomatis, selamanya. Selebihnya tidak tersentuh, jadi riwayat Anda tetap berfungsi seperti biasa.
+
+Tidak ada mode yang harus diingat untuk diaktifkan. Tidak ada ritual bersih-bersih. Tambahkan satu situs sekali, lalu lupakan.
+
+APA YANG ANDA DAPAT
+
+• Seluruh domain atau bagian tertentu saja — example.com, atau cukup example.com/section
+• Subdomain ikut tercakup — satu aturan menangani news.example.com, shop.example.com, dan semuanya
+• Pertahankan beranda, hapus sisanya — opsional, per situs
+• Tambahkan situs yang sedang Anda buka lewat klik kanan — tanpa mengetik, tanpa menyalin URL
+• Bersihkan riwayat yang sudah menumpuk dengan satu klik, bukan hanya kunjungan berikutnya
+• Daftar Anda tersinkronisasi di semua Chrome tempat Anda login
+
+PRIVASI
+
+Ekstensi ini tidak melakukan satu pun permintaan jaringan. Tidak ada server, tidak ada analitik, tidak ada pelacakan, tidak ada iklan, tidak ada akun. Ekstensi ini tidak pernah membaca isi halaman: satu-satunya alamat yang dilihatnya adalah yang Anda serahkan sendiri lewat klik kanan pada halaman. Gratis dan sumber terbuka — baca sendiri tiap barisnya atau bangun sendiri dari sumbernya.
+
+IZIN
+
+Riwayat (history) — untuk menghapus item yang cocok dengan aturan Anda.
+Penyimpanan (storage) — untuk menyimpan daftar Anda.
+Alarm (alarms) — untuk menjalankan pembersihan berkala di latar belakang.
+Menu konteks (contextMenus) — untuk menaruh "Bersihkan riwayat situs ini secara otomatis" di menu klik kanan.
+Tab aktif (activeTab) — untuk membaca alamat halaman yang Anda klik kanan, dan hanya pada saat itu. Tidak ada akses permanen ke situs mana pun. Tidak ada yang lain.
