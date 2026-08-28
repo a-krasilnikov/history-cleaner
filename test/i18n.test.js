@@ -44,6 +44,10 @@ const baseKey = (key) => key.replace(PLURAL_SUFFIX, "");
 const pluralBases = (messages) =>
   new Set(Object.keys(messages).filter((k) => PLURAL_SUFFIX.test(k)).map(baseKey));
 
+/** _locales folders use Chrome's underscore form (pt_BR); Intl needs the
+ *  BCP-47 tag (pt-BR) and throws a RangeError on the underscore. */
+const bcp47 = (locale) => locale.replace("_", "-");
+
 /** The $NAME$ slots used inside a message, lowercased. */
 const slotsIn = (message) =>
   new Set((message.match(/\$([A-Za-z0-9_]+)\$/g) || []).map((s) => s.slice(1, -1).toLowerCase()));
@@ -104,7 +108,7 @@ describe("locale catalogues", () => {
     it(`${locale}: covers every plural form the language needs`, () => {
       // Russian needs one/few/many where English needs one/other; tn() falls
       // back to _other, but a missing category would silently read wrong.
-      const categories = new Intl.PluralRules(locale).resolvedOptions().pluralCategories;
+      const categories = new Intl.PluralRules(bcp47(locale)).resolvedOptions().pluralCategories;
       for (const base of pluralBases(EN)) {
         for (const category of categories) {
           assert.ok(
