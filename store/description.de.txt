@@ -1,0 +1,24 @@
+Legen Sie fest, welche Websites nicht im Browserverlauf auftauchen sollen. Sie werden in dem Moment gelöscht, in dem Sie sie besuchen — automatisch und für immer. Alles andere bleibt unangetastet, Ihr Verlauf funktioniert also weiter wie gewohnt.
+
+Kein Modus, den man erst einschalten muss. Kein Aufräumritual. Website einmal eintragen und nicht mehr daran denken.
+
+WAS SIE BEKOMMEN
+
+• Ganze Domains oder einzelne Bereiche — example.com oder nur example.com/section
+• Subdomains inklusive — eine Regel deckt news.example.com, shop.example.com und alle anderen ab
+• Startseite behalten, den Rest löschen — optional, für jede Website einzeln
+• Die gerade geöffnete Website per Rechtsklick eintragen — nichts tippen, keine URLs kopieren
+• Bereits vorhandenen Verlauf mit einem Klick bereinigen, nicht nur künftige Besuche
+• Ihre Liste wird über alle Chrome-Installationen synchronisiert, in denen Sie angemeldet sind
+
+DATENSCHUTZ
+
+Die Erweiterung stellt keine einzige Netzwerkanfrage. Kein Server, keine Analyse, kein Tracking, keine Werbung, kein Konto. Sie liest keine Seiteninhalte: Die einzige Adresse, die sie je zu sehen bekommt, ist die, die Sie ihr selbst per Rechtsklick auf eine Seite übergeben. Kostenlos und quelloffen — lesen Sie jede Zeile selbst nach oder bauen Sie die Erweiterung einfach selbst.
+
+BERECHTIGUNGEN
+
+Verlauf (history) — um die Einträge zu löschen, die auf Ihre Regeln passen.
+Speicher (storage) — um Ihre Liste zu sichern.
+Alarme (alarms) — um die regelmäßige Bereinigung im Hintergrund auszuführen.
+Kontextmenüs (contextMenus) — um "Verlauf dieser Website automatisch bereinigen" ins Rechtsklickmenü zu setzen.
+Aktiver Tab (activeTab) — um die Adresse der Seite zu lesen, auf der Sie mit der rechten Maustaste geklickt haben, und nur in diesem Moment. Es gibt keinen dauerhaften Zugriff auf irgendeine Website. Sonst nichts.
