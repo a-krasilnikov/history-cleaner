@@ -1,0 +1,24 @@
+Defina os sites que não quer no histórico do navegador. São eliminados no momento em que os visita — automaticamente, para sempre. Todo o resto fica intacto, por isso o seu histórico continua a funcionar como sempre.
+
+Não há nenhum modo de que se tenha de lembrar para o ativar. Não há rituais de limpeza. Adicione um site uma vez e deixe de pensar no assunto.
+
+O QUE FAZ
+
+• Domínios inteiros ou secções específicas — example.com ou apenas example.com/section
+• Subdomínios incluídos — uma regra cobre news.example.com, shop.example.com e todos os outros
+• Dá para manter a página inicial e apagar só o resto — opcional, site a site
+• O site em que está adiciona-se com o botão direito do rato — sem escrever, sem copiar URLs
+• O histórico já acumulado é limpo com um clique, não só as visitas futuras
+• A sua lista é sincronizada em todos os Chrome onde tem sessão iniciada
+
+PRIVACIDADE
+
+A extensão não faz um único pedido de rede. Não há servidor, análises, rastreio, anúncios nem conta. Nunca lê o conteúdo das páginas: o único endereço que vê é aquele que lhe entrega ao clicar com o botão direito numa página. É gratuita e de código aberto — leia cada linha ou compile-a por si.
+
+PERMISSÕES
+
+Histórico (history) — para eliminar as entradas que correspondem às suas regras.
+Armazenamento (storage) — para guardar a sua lista.
+Alarmes (alarms) — para executar a limpeza periódica em segundo plano.
+Menus de contexto (contextMenus) — para colocar "Limpeza automática do histórico deste site" no menu do botão direito.
+Separador ativo (activeTab) — para ler o endereço da página onde clicou com o botão direito, e apenas nesse momento. Não há acesso permanente a nenhum site. Nada mais.
