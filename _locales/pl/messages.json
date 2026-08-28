@@ -1,0 +1,294 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "Automatycznie usuwa z historii przeglądarki wizyty na wybranych przez Ciebie stronach."
+  },
+  "actionTitle": {
+    "message": "Ustawienia History Auto-Cleaner"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — Ustawienia"
+  },
+  "tagline": {
+    "message": "Witryny z tej listy nigdy nie zostają w historii."
+  },
+
+  "siteInputLabel": {
+    "message": "Witryna do usunięcia"
+  },
+  "siteInputPlaceholder": {
+    "message": "np. example.com lub site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "Dodaj"
+  },
+  "addSwitchText": {
+    "message": "Zachowaj stronę podaną powyżej, usuwaj tylko te w jej obrębie"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ zostaje, site.com/page znika — albo ogranicz do sekcji: site.com/forum/ zostaje, site.com/forum/post znika"
+  },
+
+  "contextMenuAddSite": {
+    "message": "Automatycznie czyść historię tej witryny…"
+  },
+  "statusPrefilled": {
+    "message": "Adres $SITE$ jest już wpisany — kliknij „Dodaj”, aby potwierdzić.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "Eksportuj"
+  },
+  "importButton": {
+    "message": "Importuj"
+  },
+  "cleanNowButton": {
+    "message": "Wyczyść teraz"
+  },
+  "cleanNowTitle": {
+    "message": "Historia jest czyszczona automatycznie co 30 minut i przy uruchomieniu Chrome. Kliknij, aby wyczyścić od razu, bez czekania."
+  },
+  "cleanNowBusy": {
+    "message": "Czyszczenie…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "Zablokowane witryny"
+  },
+  "filterLabel": {
+    "message": "Filtruj listę"
+  },
+  "filterPlaceholder": {
+    "message": "Filtruj listę…"
+  },
+  "emptyState": {
+    "message": "Nie ma jeszcze żadnych witryn. Dodaj domenę (example.com) lub konkretną sekcję (site.com/forum/) — pasujące strony, także z subdomen, będą czyszczone automatycznie."
+  },
+  "noMatches": {
+    "message": "Żadna witryna nie pasuje do „$QUERY$”.",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ wszystkie subdomeny"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ wszystkie subdomeny, ograniczone do $PATH$",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "Usuń $SITE$ z listy",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "Zachowaj stronę główną"
+  },
+  "rowKeepThisPage": {
+    "message": "Zachowaj tę stronę"
+  },
+  "statusKeepOn": {
+    "message": "Adres $SITE$ zostanie zachowany — usuwane są tylko strony w jego obrębie.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "Wszystkie strony w obrębie $SITE$ będą usuwane.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "Najpierw wpisz domenę, np. example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "„$INPUT$” nie wygląda na poprawną domenę.",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ jest już na liście.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "Dodano $SITE$.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "Dodano $SITE$ — ta strona zostaje, te w jej obrębie będą usuwane.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "Usunięto $SITE$ z listy.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "Nie udało się zapisać — pamięć synchronizacji jest pełna (około 100 reguł). Usuń jedną regułę i spróbuj ponownie."
+  },
+  "saveErrorTooManyWrites": {
+    "message": "Nie udało się zapisać — zbyt wiele zmian naraz. Poczekaj chwilę i spróbuj ponownie."
+  },
+  "saveErrorGeneric": {
+    "message": "Nie udało się zapisać ustawień: $MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "nieznany błąd"
+  },
+
+  "statusNothingToClean": {
+    "message": "Najpierw dodaj witrynę — nie ma jeszcze czego czyścić."
+  },
+  "statusNothingFound": {
+    "message": "Nie znaleziono pasujących wpisów w historii."
+  },
+  "statusCleanedUp_one": {
+    "message": "Usunięto z historii $COUNT$ pasujący wpis.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "statusCleanedUp_few": {
+    "message": "Usunięto z historii $COUNT$ pasujące wpisy.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "3" }
+    }
+  },
+  "statusCleanedUp_many": {
+    "message": "Usunięto z historii $COUNT$ pasujących wpisów.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "statusCleanedUp_other": {
+    "message": "Usunięto z historii $COUNT$ pasujących wpisów.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "Dodaj witrynę przed eksportem — lista jest pusta."
+  },
+  "exportDone_one": {
+    "message": "Wyeksportowano $COUNT$ witrynę.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "exportDone_few": {
+    "message": "Wyeksportowano $COUNT$ witryny.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "3" }
+    }
+  },
+  "exportDone_many": {
+    "message": "Wyeksportowano $COUNT$ witryn.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "exportDone_other": {
+    "message": "Wyeksportowano $COUNT$ witryn.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "Ten plik to nieprawidłowy JSON."
+  },
+  "importNoSites": {
+    "message": "Nie znaleziono w tym pliku poprawnych witryn."
+  },
+  "importReadError": {
+    "message": "Nie udało się odczytać tego pliku."
+  },
+  "importDone": {
+    "message": "Import zakończony: dodano $ADDED$, zaktualizowano $UPDATED$.",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "Uruchamia się automatycznie co 30 minut i przy starcie Chrome. Czyszczenie nie było jeszcze wykonywane."
+  },
+  "lastSweepLine": {
+    "message": "Ostatnie $LABEL$: $TIME$ — $RESULT$.",
+    "placeholders": {
+      "label": { "content": "$1", "example": "czyszczenie automatyczne" },
+      "time": { "content": "$2", "example": "5 minut temu" },
+      "result": { "content": "$3", "example": "usunięto 3 wpisy" }
+    }
+  },
+  "justNow": {
+    "message": "przed chwilą"
+  },
+  "sweepLabelManual": {
+    "message": "czyszczenie ręczne"
+  },
+  "sweepLabelPeriodic": {
+    "message": "czyszczenie automatyczne"
+  },
+  "sweepLabelStartup": {
+    "message": "czyszczenie przy uruchomieniu"
+  },
+  "sweepLabelInstall": {
+    "message": "czyszczenie po instalacji"
+  },
+  "sweepLabelUnknown": {
+    "message": "czyszczenie"
+  },
+  "sweepRemovedNothing": {
+    "message": "nie było czego usuwać"
+  },
+  "sweepRemoved_one": {
+    "message": "usunięto $COUNT$ wpis",
+    "placeholders": {
+      "count": { "content": "$1", "example": "1" }
+    }
+  },
+  "sweepRemoved_few": {
+    "message": "usunięto $COUNT$ wpisy",
+    "placeholders": {
+      "count": { "content": "$1", "example": "3" }
+    }
+  },
+  "sweepRemoved_many": {
+    "message": "usunięto $COUNT$ wpisów",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "sweepRemoved_other": {
+    "message": "usunięto $COUNT$ wpisów",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
