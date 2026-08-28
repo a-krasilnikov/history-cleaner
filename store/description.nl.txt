@@ -1,0 +1,24 @@
+Bepaal welke sites je niet in je browsergeschiedenis wilt. Ze worden verwijderd op het moment dat je ze bezoekt — automatisch, voorgoed. Al het andere blijft onaangeroerd, dus je geschiedenis werkt gewoon zoals altijd.
+
+Geen modus die je moet onthouden aan te zetten. Geen opruimritueel. Je voegt een site één keer toe en denkt er niet meer aan.
+
+WAT HET DOET
+
+• Hele domeinen of alleen bepaalde secties — example.com, of alleen example.com/section
+• Subdomeinen inbegrepen — één regel dekt news.example.com, shop.example.com en de rest
+• Homepage behouden en de rest weggooien — optioneel, per site
+• De site waar je bent toevoegen met een rechtermuisklik — niets typen, geen URL's kopiëren
+• De geschiedenis die er al staat opschonen met één klik, niet alleen toekomstige bezoeken
+• Je lijst synchroniseert met elke Chrome waarop je bent ingelogd
+
+PRIVACY
+
+De extensie doet geen enkel netwerkverzoek. Geen server, geen analytics, geen tracking, geen advertenties, geen account. Ze leest nooit de inhoud van pagina's: het enige adres dat ze te zien krijgt, is het adres dat je haar zelf aanreikt met een rechtermuisklik op een pagina. Gratis en open source — lees elke regel zelf na of bouw hem zelf.
+
+MACHTIGINGEN
+
+Geschiedenis (history) — om de items te verwijderen die op jouw regels passen.
+Opslag (storage) — om je lijst te bewaren.
+Alarmen (alarms) — om de periodieke opschoning op de achtergrond uit te voeren.
+Contextmenu's (contextMenus) — om "Geschiedenis van deze site automatisch opschonen" in het rechtermuismenu te zetten.
+Actief tabblad (activeTab) — om het adres te lezen van de pagina waarop je rechts hebt geklikt, en alleen op dat moment. Er is geen permanente toegang tot welke site dan ook. Verder niets.
