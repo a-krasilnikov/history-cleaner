@@ -1,0 +1,24 @@
+Wskaż witryny, których nie chcesz mieć w historii przeglądarki. Znikają w chwili, w której je odwiedzasz — automatycznie i na zawsze. Cała reszta zostaje nietknięta, więc historia działa dalej tak jak zwykle.
+
+Żadnego trybu, który trzeba pamiętać, żeby włączyć. Żadnych rytuałów sprzątania. Dodajesz witrynę raz i przestajesz o niej myśleć.
+
+CO POTRAFI
+
+• Całe domeny albo pojedyncze sekcje — example.com lub tylko example.com/section
+• Subdomeny w komplecie — jedna reguła obejmuje news.example.com, shop.example.com i całą resztę
+• Możesz zostawić stronę główną i usuwać tylko to, co pod nią — osobno dla każdej witryny
+• Witrynę, na której właśnie jesteś, dodasz prawym przyciskiem — nic nie trzeba wpisywać ani kopiować
+• Historię, która już się nazbierała, wyczyścisz jednym kliknięciem, nie tylko przyszłe wizyty
+• Lista synchronizuje się we wszystkich Chrome, w których masz zalogowane konto
+
+PRYWATNOŚĆ
+
+Rozszerzenie nie wykonuje ani jednego zapytania sieciowego. Nie ma serwera, analityki, śledzenia, reklam ani konta. Nie czyta treści stron: jedyny adres, jaki widzi, to ten, który sam mu podajesz, klikając stronę prawym przyciskiem. Darmowe, z otwartym kodem — przeczytaj każdą linijkę sam albo zbuduj je własnoręcznie.
+
+UPRAWNIENIA
+
+Historia (history) — żeby usuwać wpisy pasujące do Twoich reguł.
+Pamięć (storage) — żeby przechowywać Twoją listę.
+Alarmy (alarms) — żeby uruchamiać okresowe czyszczenie w tle.
+Menu kontekstowe (contextMenus) — żeby dodać pozycję "Automatycznie czyść historię tej witryny".
+Aktywna karta (activeTab) — żeby poznać adres strony, którą kliknąłeś prawym przyciskiem, i tylko w tym momencie. Nie ma stałego dostępu do żadnej witryny. Nic więcej.
