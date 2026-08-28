@@ -1,0 +1,24 @@
+Choisissez les sites que vous ne voulez pas voir dans votre historique de navigation. Ils sont supprimés au moment même où vous les visitez — automatiquement, définitivement. Tout le reste est laissé intact : votre historique continue de fonctionner normalement.
+
+Aucun mode à penser à activer. Aucun rituel de nettoyage. Vous ajoutez un site une fois et vous n'y pensez plus.
+
+CE QU'ELLE FAIT
+
+• Des domaines entiers ou des sections précises — example.com, ou seulement example.com/section
+• Sous-domaines compris — une seule règle couvre news.example.com, shop.example.com et tous les autres
+• Conserver la page d'accueil et supprimer le reste — au choix, site par site
+• Ajouter le site sur lequel vous êtes d'un clic droit — rien à taper, aucune URL à copier
+• Nettoyer d'un clic l'historique déjà accumulé, pas seulement les visites futures
+• Votre liste est synchronisée sur tous les Chrome où vous êtes connecté
+
+CONFIDENTIALITÉ
+
+L'extension ne fait aucune requête réseau. Pas de serveur, pas d'analyse, pas de pistage, pas de publicité, pas de compte. Elle ne lit jamais le contenu des pages : la seule adresse qu'elle voit est celle que vous lui transmettez vous-même par un clic droit sur une page. Gratuite et open source — lisez-en chaque ligne ou compilez-la vous-même.
+
+AUTORISATIONS
+
+Historique (history) — pour supprimer les éléments qui correspondent à vos règles.
+Stockage (storage) — pour enregistrer votre liste.
+Alarmes (alarms) — pour lancer le nettoyage périodique en arrière-plan.
+Menus contextuels (contextMenus) — pour placer "Nettoyer automatiquement l'historique de ce site" dans le menu du clic droit.
+Onglet actif (activeTab) — pour lire l'adresse de la page sur laquelle vous avez fait un clic droit, et seulement à ce moment-là. Aucun accès permanent à quelque site que ce soit. Rien d'autre.
