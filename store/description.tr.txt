@@ -1,0 +1,24 @@
+Tarayıcı geçmişinizde görmek istemediğiniz siteleri belirleyin. Ziyaret ettiğiniz anda silinirler — otomatik olarak, kalıcı biçimde. Geri kalan her şeye dokunulmaz, geçmişiniz her zamanki gibi çalışmaya devam eder.
+
+Açmayı hatırlamanız gereken bir mod yok. Temizlik ritüeli yok. Siteyi bir kez ekliyorsunuz ve bir daha düşünmüyorsunuz.
+
+NELER YAPAR
+
+• Alan adının tamamı veya yalnızca belirli bölümleri — example.com ya da sadece example.com/section
+• Alt alan adları dahil — tek bir kural news.example.com, shop.example.com ve diğerlerinin hepsini kapsar
+• Ana sayfayı koruyup gerisini silebilirsiniz — site site, isteğe bağlı
+• Açık olan siteyi sağ tıkla ekleyin — yazmak yok, URL kopyalamak yok
+• Halihazırda birikmiş geçmişi tek tıkla temizleyin, yalnızca sonraki ziyaretleri değil
+• Listeniz, oturum açtığınız tüm Chrome tarayıcıları arasında eşitlenir
+
+GİZLİLİK
+
+Uzantı tek bir ağ isteği bile yapmaz. Sunucu yok, analitik yok, izleme yok, reklam yok, hesap yok. Sayfaların içeriğini hiçbir zaman okumaz: gördüğü tek adres, bir sayfaya sağ tıklayarak kendi elinizle verdiğiniz adrestir. Ücretsiz ve açık kaynak — her satırını kendiniz okuyabilir ya da kendiniz derleyebilirsiniz.
+
+İZİNLER
+
+Geçmiş (history) — kurallarınızla eşleşen öğeleri silmek için.
+Depolama (storage) — listenizi saklamak için.
+Alarmlar (alarms) — arka planda düzenli temizliği çalıştırmak için.
+Bağlam menüleri (contextMenus) — sağ tık menüsüne "Bu sitenin geçmişini otomatik temizle" eklemek için.
+Etkin sekme (activeTab) — sağ tıkladığınız sayfanın adresini, yalnızca o anda okumak için. Hiçbir siteye kalıcı erişim yoktur. Başka hiçbir şey yok.
