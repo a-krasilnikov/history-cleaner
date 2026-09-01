@@ -1,0 +1,240 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "自动从浏览器历史记录中删除指定网站的访问记录。"
+  },
+  "actionTitle": {
+    "message": "History Auto-Cleaner 设置"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — 设置"
+  },
+  "tagline": {
+    "message": "列表中的网站永远不会留在历史记录里。"
+  },
+
+  "siteInputLabel": {
+    "message": "要清除的网站"
+  },
+  "siteInputPlaceholder": {
+    "message": "例如 example.com 或 site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "添加网站"
+  },
+  "addSwitchText": {
+    "message": "保留上面这个页面，只删除它下面的页面"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ 保留，site.com/page 删除；也可以限定范围：site.com/forum/ 保留，site.com/forum/post 删除"
+  },
+
+  "contextMenuAddSite": {
+    "message": "自动清理该网站的历史记录…"
+  },
+  "statusPrefilled": {
+    "message": "已填入 $SITE$，点击“添加网站”确认。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "导出"
+  },
+  "importButton": {
+    "message": "导入"
+  },
+  "cleanNowButton": {
+    "message": "立即清理"
+  },
+  "cleanNowTitle": {
+    "message": "历史记录每 30 分钟以及 Chrome 启动时会自动清理。不想等待就点击这里立即清理。"
+  },
+  "cleanNowBusy": {
+    "message": "正在清理…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "已屏蔽的网站"
+  },
+  "filterLabel": {
+    "message": "筛选列表"
+  },
+  "filterPlaceholder": {
+    "message": "筛选列表…"
+  },
+  "emptyState": {
+    "message": "还没有添加网站。添加一个域名（example.com）或某个具体目录（site.com/forum/），匹配的页面（包括子域名）就会被自动清理。"
+  },
+  "noMatches": {
+    "message": "没有与“$QUERY$”匹配的网站。",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ 包含所有子域名"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ 包含所有子域名，仅限 $PATH$",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "从列表中移除 $SITE$",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "保留首页"
+  },
+  "rowKeepThisPage": {
+    "message": "保留该页面本身"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ 会保留，只删除它下面的页面。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "$SITE$ 下的所有页面都会被删除。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "请先输入域名，例如 example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "“$INPUT$”看起来不是有效的域名。",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ 已在列表中。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "已添加 $SITE$。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "已添加 $SITE$：该页面保留，它下面的页面会被删除。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "已移除 $SITE$。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "无法保存：同步存储空间已满（约 100 条规则）。请删除一条规则后重试。"
+  },
+  "saveErrorTooManyWrites": {
+    "message": "无法保存：一次改动太多。请稍候片刻再试。"
+  },
+  "saveErrorGeneric": {
+    "message": "无法保存设置：$MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "未知错误"
+  },
+
+  "statusNothingToClean": {
+    "message": "请先添加网站，目前还没有可清理的内容。"
+  },
+  "statusNothingFound": {
+    "message": "在现有历史记录中没有找到匹配的内容。"
+  },
+  "statusCleanedUp_other": {
+    "message": "已从历史记录中清理 $COUNT$ 条匹配的记录。",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "导出前请先添加网站，列表是空的。"
+  },
+  "exportDone_other": {
+    "message": "已导出 $COUNT$ 个网站。",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "该文件不是有效的 JSON。"
+  },
+  "importNoSites": {
+    "message": "该文件中没有找到有效的网站。"
+  },
+  "importReadError": {
+    "message": "无法读取该文件。"
+  },
+  "importDone": {
+    "message": "导入完成：新增 $ADDED$ 个，更新 $UPDATED$ 个。",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "每 30 分钟以及 Chrome 启动时自动运行。目前还没有执行过清理。"
+  },
+  "lastSweepLine": {
+    "message": "上次$LABEL$：$TIME$，$RESULT$。",
+    "placeholders": {
+      "label": { "content": "$1", "example": "自动清理" },
+      "time": { "content": "$2", "example": "5分钟前" },
+      "result": { "content": "$3", "example": "删除了 3 条" }
+    }
+  },
+  "justNow": {
+    "message": "刚刚"
+  },
+  "sweepLabelManual": {
+    "message": "手动清理"
+  },
+  "sweepLabelPeriodic": {
+    "message": "自动清理"
+  },
+  "sweepLabelStartup": {
+    "message": "启动时清理"
+  },
+  "sweepLabelInstall": {
+    "message": "安装时清理"
+  },
+  "sweepLabelUnknown": {
+    "message": "清理"
+  },
+  "sweepRemovedNothing": {
+    "message": "没有需要删除的内容"
+  },
+  "sweepRemoved_other": {
+    "message": "删除了 $COUNT$ 条",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
