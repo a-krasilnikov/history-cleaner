@@ -1,0 +1,240 @@
+{
+  "appName": {
+    "message": "History Auto-Cleaner"
+  },
+  "appDescription": {
+    "message": "自動從瀏覽器的瀏覽記錄中刪除指定網站的造訪記錄。"
+  },
+  "actionTitle": {
+    "message": "History Auto-Cleaner 設定"
+  },
+  "optionsTitle": {
+    "message": "History Auto-Cleaner — 設定"
+  },
+  "tagline": {
+    "message": "清單中的網站不會留在瀏覽記錄裡。"
+  },
+
+  "siteInputLabel": {
+    "message": "要清除的網站"
+  },
+  "siteInputPlaceholder": {
+    "message": "例如 example.com 或 site.com/forum/"
+  },
+  "addSiteButton": {
+    "message": "新增網站"
+  },
+  "addSwitchText": {
+    "message": "保留上面這個網頁，只刪除底下的網頁"
+  },
+  "addSwitchHint": {
+    "message": "site.com/ 保留，site.com/page 刪除；也可以限定範圍：site.com/forum/ 保留，site.com/forum/post 刪除"
+  },
+
+  "contextMenuAddSite": {
+    "message": "自動清理這個網站的瀏覽記錄…"
+  },
+  "statusPrefilled": {
+    "message": "已填入 $SITE$，請按一下「新增網站」確認。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "exportButton": {
+    "message": "匯出"
+  },
+  "importButton": {
+    "message": "匯入"
+  },
+  "cleanNowButton": {
+    "message": "立即清理"
+  },
+  "cleanNowTitle": {
+    "message": "瀏覽記錄每 30 分鐘以及 Chrome 啟動時會自動清理。不想等的話，可以按一下這裡立即清理。"
+  },
+  "cleanNowBusy": {
+    "message": "正在清理…"
+  },
+
+  "blockedSitesHeading": {
+    "message": "已封鎖的網站"
+  },
+  "filterLabel": {
+    "message": "篩選清單"
+  },
+  "filterPlaceholder": {
+    "message": "篩選清單…"
+  },
+  "emptyState": {
+    "message": "尚未新增網站。新增一個網域（example.com）或某個特定目錄（site.com/forum/），符合的網頁（包含子網域）就會自動清理。"
+  },
+  "noMatches": {
+    "message": "沒有符合「$QUERY$」的網站。",
+    "placeholders": {
+      "query": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "rowAllSubdomains": {
+    "message": "+ 包含所有子網域"
+  },
+  "rowAllSubdomainsScoped": {
+    "message": "+ 包含所有子網域，僅限 $PATH$",
+    "placeholders": {
+      "path": { "content": "$1", "example": "/forum/" }
+    }
+  },
+  "rowRemoveLabel": {
+    "message": "從清單中移除 $SITE$",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com/forum/" }
+    }
+  },
+  "rowKeepHomepage": {
+    "message": "保留首頁"
+  },
+  "rowKeepThisPage": {
+    "message": "保留這個網頁本身"
+  },
+  "statusKeepOn": {
+    "message": "$SITE$ 會保留，只刪除底下的網頁。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusKeepOff": {
+    "message": "$SITE$ 底下的所有網頁都會被刪除。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "hintNeedDomain": {
+    "message": "請先輸入網域，例如 example.com"
+  },
+  "hintInvalidDomain": {
+    "message": "「$INPUT$」看起來不是有效的網域。",
+    "placeholders": {
+      "input": { "content": "$1", "example": "not a domain" }
+    }
+  },
+  "hintDuplicate": {
+    "message": "$SITE$ 已經在清單中。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAdded": {
+    "message": "已新增 $SITE$。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusAddedKeep": {
+    "message": "已新增 $SITE$：這個網頁會保留，底下的網頁會被刪除。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "statusRemoved": {
+    "message": "已移除 $SITE$。",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" }
+    }
+  },
+
+  "saveErrorQuota": {
+    "message": "無法儲存：同步儲存空間已滿（約 100 條規則）。請刪除一條規則後再試一次。"
+  },
+  "saveErrorTooManyWrites": {
+    "message": "無法儲存：一次變更太多。請稍候片刻再試一次。"
+  },
+  "saveErrorGeneric": {
+    "message": "無法儲存設定：$MESSAGE$",
+    "placeholders": {
+      "message": { "content": "$1", "example": "QUOTA_BYTES quota exceeded" }
+    }
+  },
+  "saveErrorUnknown": {
+    "message": "不明的錯誤"
+  },
+
+  "statusNothingToClean": {
+    "message": "請先新增網站，目前還沒有可以清理的項目。"
+  },
+  "statusNothingFound": {
+    "message": "在現有的瀏覽記錄中找不到符合的項目。"
+  },
+  "statusCleanedUp_other": {
+    "message": "已從瀏覽記錄中清理 $COUNT$ 筆符合的項目。",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+
+  "exportEmpty": {
+    "message": "匯出前請先新增網站，清單是空的。"
+  },
+  "exportDone_other": {
+    "message": "已匯出 $COUNT$ 個網站。",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  },
+  "importInvalidJson": {
+    "message": "這個檔案不是有效的 JSON。"
+  },
+  "importNoSites": {
+    "message": "這個檔案中找不到有效的網站。"
+  },
+  "importReadError": {
+    "message": "無法讀取這個檔案。"
+  },
+  "importDone": {
+    "message": "匯入完成：新增 $ADDED$ 個，更新 $UPDATED$ 個。",
+    "placeholders": {
+      "added": { "content": "$1", "example": "3" },
+      "updated": { "content": "$2", "example": "1" }
+    }
+  },
+
+  "autoSweepNever": {
+    "message": "每 30 分鐘以及 Chrome 啟動時會自動執行。目前還沒有執行過清理。"
+  },
+  "lastSweepLine": {
+    "message": "上次$LABEL$：$TIME$，$RESULT$。",
+    "placeholders": {
+      "label": { "content": "$1", "example": "自動清理" },
+      "time": { "content": "$2", "example": "5 分鐘前" },
+      "result": { "content": "$3", "example": "刪除了 3 筆" }
+    }
+  },
+  "justNow": {
+    "message": "剛剛"
+  },
+  "sweepLabelManual": {
+    "message": "手動清理"
+  },
+  "sweepLabelPeriodic": {
+    "message": "自動清理"
+  },
+  "sweepLabelStartup": {
+    "message": "啟動時清理"
+  },
+  "sweepLabelInstall": {
+    "message": "安裝時清理"
+  },
+  "sweepLabelUnknown": {
+    "message": "清理"
+  },
+  "sweepRemovedNothing": {
+    "message": "沒有需要刪除的項目"
+  },
+  "sweepRemoved_other": {
+    "message": "刪除了 $COUNT$ 筆",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" }
+    }
+  }
+}
